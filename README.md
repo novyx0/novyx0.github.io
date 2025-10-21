@@ -3,7 +3,7 @@
             
             
             
-https://t.me/mmssixxx → https://levende.github.io/lampa-plugins
+https://t.me/mmssixxx → https://levende.github.io/lampa-plugins → https://ne3nayskas.github.io/plugins/
             
             
             
