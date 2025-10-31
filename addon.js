@@ -1,215 +1,11 @@
 'use strict';
 
 function addonStart() {
-    console.log('Plugin Manager started - simplified version');
+    console.log('Theme Manager Plugin started');
     
-    // Ждем полной загрузки Lampa
-    if (typeof Lampa === 'undefined' || !Lampa.Settings || !Lampa.Settings.main) {
-        setTimeout(addonStart, 500);
-        return;
-    }
-
-    // Проверяем, не добавлен ли уже менеджер
-    if (Lampa.Settings.main().render().find('[data-component="plugin_manager"]').length) {
-        console.log('Plugin Manager already exists');
-        return;
-    }
-
-    // Основной контейнер для настроек плагина
-    var pluginHtml = createPluginHtml();
-    
-    // Добавляем в главное меню настроек
-    Lampa.Settings.main(function() {
-        var main = this.render();
-        main.find('.settings-panel').append(pluginHtml);
-        
-        // Инициализируем обработчики после добавления
-        initPluginHandlers();
-        
-        // Проверяем активные плагины при старте
-        checkAndActivatePlugins();
-        
-        console.log('Plugin Manager initialized successfully');
-    });
-    
-    // Обработчик готовности приложения
-    Lampa.Listener.follow('app', function(e) {
-        if (e.type === 'ready') {
-            checkAndActivatePlugins();
-        }
-    });
-
-    // Функция создания HTML для менеджера
-    function createPluginHtml() {
-        var html = $('<div></div>');
-        
-        // Заголовок с иконкой
-        html.append(`
-            <div class="settings-folder selector" data-component="plugin_manager" data-parent="1">
-                <div class="settings-folder__icon">
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <style type="text/css">
-                                .st0{fill:#FFFFFF;}
-                            </style>
-                            <path class="st0" d="M432.531,229.906c-9.906,0-19.125,2.594-27.313,6.375v-51.656c0-42.938-34.922-77.875-77.859-77.875h-51.641
-                                c3.781-8.156,6.375-17.375,6.375-27.281C282.094,35.656,246.438,0,202.625,0c-43.828,0-79.484,35.656-79.484,79.469
-                                c0,9.906,2.594,19.125,6.359,27.281H77.875C34.938,106.75,0,141.688,0,184.625l0.047,23.828H0l0.078,33.781
-                                c0,23.031,8.578,36.828,12.641,42.063c12.219,15.797,27.094,18.172,34.891,18.172c11.953,0,23.141-4.953,33.203-14.703
-                                l0.906-0.422l1.516-2.141c1.391-1.359,6.328-5.484,14.016-5.5c16.344,0,29.656,13.297,29.656,29.672
-                                c0,16.344-13.313,29.656-29.672,29.656c-7.672,0-12.609-4.125-14-5.5l-1.516-2.141l-0.906-0.422
-                                c-10.062-9.75-21.25-14.703-33.203-14.703c-7.797,0-22.672,2.375-34.891,18.172c-4.063,5.234-12.641,19.031-12.641,42.063
-                                v33.781l-0.078,0h0l0.047-23.828C0,141.688,34.938,106.75,77.875,106.75h51.656c-3.766,8.156-6.359,17.375-6.359,27.281
-                                c0,43.828,35.656,79.484,79.484,79.484c9.906,0,17.406-2.484,27.281-6.375v51.656c0,42.938,34.922,77.859,77.859,77.859h51.641
-                                c-3.781,8.156-6.375,17.375-6.375,27.281c0,43.828,35.656,79.484,79.484,79.484s79.484-35.656,79.484-79.484
-                                c0-9.906-2.594-19.125-6.375-27.281h51.641c42.938,0,77.875-34.922,77.875-77.859v-51.656c-9.875-3.891-17.375-6.375-27.281-6.375
-                                C512.031,309.406,476.375,273.75,432.531,229.906z M432.531,359.344c-35.844,0-65-29.156-65-65s29.156-65,65-65s65,29.156,65,65
-                                S468.375,359.344,432.531,359.344z M202.625,78.531c-21.922,0-39.781,17.859-39.781,39.938s17.859,39.938,39.781,39.938
-                                s39.781-17.859,39.781-39.938S224.547,78.531,202.625,78.531z M77.875,184.625c-21.922,0-39.781,17.859-39.781,39.938
-                                c0,21.922,17.859,39.938,39.781,39.938s39.781-17.859,39.781-39.938C117.656,202.484,99.797,184.625,77.875,184.625z M77.875,314.969
-                                c-21.922,0-39.781,17.859-39.781,39.938c0,21.922,17.859,39.938,39.781,39.938s39.781-17.859,39.781-39.938
-                                C117.656,332.828,99.797,314.969,77.875,314.969z M432.531,443.875c-21.922,0-39.781,17.859-39.781,39.938
-                                c0,21.922,17.859,39.938,39.781,39.938s39.781-17.859,39.781-39.938C472.312,461.734,454.453,443.875,432.531,443.875z
-                                M507.875,443.875c-21.922,0-39.781,17.859-39.781,39.938c0,21.922,17.859,39.938,39.781,39.938s39.781-17.859,39.781-39.938
-                                C547.656,461.734,529.797,443.875,507.875,443.875z M507.875,314.969c-21.922,0-39.781,17.859-39.781,39.938
-                                c0,21.922,17.859,39.938,39.781,39.938s39.781-17.859,39.781-39.938C547.656,332.828,529.797,314.969,507.875,314.969z"/>
-                        </g>
-                    </svg>
-                </div>
-                <div class="settings-folder__name">Менеджер тем</div>
-                <div class="settings-folder__icon-right"></div>
-            </div>
-        `);
-
-        return html;
-    }
-
-    // Инициализация обработчиков событий
-    function initPluginHandlers() {
-        // Обработчик клика на менеджер
-        $(document).on('hover:enter', '[data-component="plugin_manager"]', function(e) {
-            e.preventDefault();
-            showPluginPanel();
-        });
-    }
-
-    // Показать панель управления плагином
-    function showPluginPanel() {
-        var content = createPluginPanel();
-        
-        // Показываем модальное окно настроек
-        var modal = $('<div class="simple-settings settings-layer--top settings-layer--keyboard">' +
-            '<div class="settings-panel settings-panel--simple">' +
-                '<div class="settings-panel__left">' +
-                    '<div class="selector">' + content + '</div>' +
-                '</div>' +
-            '</div>' +
-        '</div>');
-
-        Lampa.Settings.update({
-            title: 'Менеджер тем',
-            component: 'plugin_manager_panel',
-            html: modal
-        });
-    }
-
-    // Создание содержимого панели плагина
-    function createPluginPanel() {
-        var pluginUrl = 'https://novyx0.github.io/my-plugins/drxaos_themes.js';
-        var pluginName = 'DrXaos Themes';
-        var pluginKey = 'drxaos_themes_enabled';
-        var isEnabled = Lampa.Storage.get(pluginKey, 'false') === 'true';
-        
-        var html = `
-            <div class="settings-folder selector-item ${isEnabled ? 'active' : ''}" data-action="toggle_plugin">
-                <div class="settings-folder__icon">
-                    <i class="icon-theme"></i>
-                </div>
-                <div class="settings-folder__name">${pluginName}</div>
-                <div class="settings-folder__status ${isEnabled ? 'active' : ''}"></div>
-                <div class="settings-folder__description">Темы интерфейса от DrXaos</div>
-            </div>
-            <div class="simple-settings__footer">
-                <div class="selector-item active" data-action="close">Закрыть</div>
-            </div>
-        `;
-        
-        return html;
-    }
-
-    // Переключение состояния плагина
-    function togglePlugin() {
-        var pluginUrl = 'https://novyx0.github.io/my-plugins/drxaos_themes.js';
-        var pluginName = 'DrXaos Themes';
-        var pluginKey = 'drxaos_themes_enabled';
-        var isEnabled = Lampa.Storage.get(pluginKey, 'false') === 'true';
-        
-        if (isEnabled) {
-            // Отключаем плагин
-            disablePlugin(pluginUrl, pluginName);
-            Lampa.Storage.set(pluginKey, 'false');
-            console.log('DrXaos Themes disabled');
-        } else {
-            // Включаем плагин
-            enablePlugin(pluginUrl, pluginName);
-            Lampa.Storage.set(pluginKey, 'true');
-            console.log('DrXaos Themes enabled');
-        }
-        
-        // Обновляем интерфейс
-        updatePluginUI();
-        
-        // Перезагружаем настройки
-        Lampa.Settings.update();
-    }
-
-    // Включение плагина
-    function enablePlugin(url, name) {
-        // Добавляем в список активных плагинов
-        var activePlugins = Lampa.Storage.get('active_plugins', '[]');
-        try {
-            activePlugins = JSON.parse(activePlugins);
-            if (!activePlugins.includes(url)) {
-                activePlugins.push(url);
-                Lampa.Storage.set('active_plugins', JSON.stringify(activePlugins));
-            }
-        } catch(e) {
-            console.log('Error parsing active plugins', e);
-        }
-        
-        // Загружаем скрипт
-        loadPluginScript(url, name, true);
-    }
-
-    // Отключение плагина
-    function disablePlugin(url, name) {
-        // Удаляем из списка активных плагинов
-        var activePlugins = Lampa.Storage.get('active_plugins', '[]');
-        try {
-            activePlugins = JSON.parse(activePlugins);
-            var index = activePlugins.indexOf(url);
-            if (index > -1) {
-                activePlugins.splice(index, 1);
-                Lampa.Storage.set('active_plugins', JSON.stringify(activePlugins));
-            }
-        } catch(e) {
-            console.log('Error parsing active plugins', e);
-        }
-        
-        // Удаляем скрипт
-        removePluginScript(url);
-        
-        // Перезагружаем страницу для полного отключения
-        setTimeout(function() {
-            location.reload();
-        }, 500);
-    }
-
-    // Загрузка скрипта плагина
-    function loadPluginScript(url, name, isPlugin) {
-        console.log('Loading plugin:', name, 'URL:', url);
+    // Функция загрузки плагина
+    function itemON(url, name, author, type, nthChildIndex) {
+        console.log('Loading theme plugin:', name, 'URL:', url);
         
         // Проверяем, не загружен ли уже
         if (document.querySelector('script[src="' + url + '"]')) {
@@ -217,132 +13,380 @@ function addonStart() {
             return;
         }
         
-        // Создаем скрипт
+        // Добавляем в storage активных плагинов
+        var activePlugins = Lampa.Storage.get('active_plugins', '[]');
+        try {
+            activePlugins = JSON.parse(activePlugins);
+            if (!activePlugins.includes(url)) {
+                activePlugins.push({
+                    url: url,
+                    name: name,
+                    author: author,
+                    status: 1,
+                    type: type
+                });
+                Lampa.Storage.set('active_plugins', JSON.stringify(activePlugins));
+            }
+        } catch(e) {
+            console.log('Error with active plugins storage:', e);
+            Lampa.Storage.set('active_plugins', JSON.stringify([{url: url, name: name, author: author, status: 1, type: type}]));
+        }
+        
+        // Создаем и загружаем скрипт
         var script = document.createElement('script');
         script.src = url;
         script.type = 'text/javascript';
         script.async = false;
         
         script.onload = function() {
-            console.log('Plugin loaded successfully:', name);
+            console.log('Theme plugin loaded successfully:', name);
             
-            // Вызываем инициализацию, если плагин ее поддерживает
-            if (typeof window.addonStart === 'function') {
-                try {
-                    window.addonStart();
-                } catch(e) {
-                    console.log('Plugin init error:', e);
+            // Добавляем статус в DOM для отображения
+            setTimeout(function() {
+                if (nthChildIndex !== undefined && nthChildIndex !== null) {
+                    var pluginElement = $('.settings-param[data-name="drxaos_themes"]').eq(nthChildIndex);
+                    if (pluginElement.length) {
+                        pluginElement.find('.settings-param__status').removeClass('active error wait').addClass('active');
+                    }
                 }
-            }
-            
-            // Обновляем интерфейс Lampa
-            if (typeof Lampa !== 'undefined') {
-                Lampa.Listener.send('plugins', {type: 'updated'});
-                Lampa.Settings.update();
-            }
+                
+                // Обновляем кэш плагинов
+                if (Lampa.Storage.get('plugins')) {
+                    var pluginsArray = JSON.parse(Lampa.Storage.get('plugins', '[]'));
+                    var exists = false;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === url) {
+                            pluginsArray[i].status = 1;
+                            exists = true;
+                            break;
+                        }
+                    }
+                    if (!exists) {
+                        pluginsArray.push({url: url, name: name, author: author, status: 1, type: type});
+                    }
+                    Lampa.Storage.set('plugins', JSON.stringify(pluginsArray));
+                }
+                
+                // Если есть функция инициализации в плагине
+                if (typeof window.addonStart === 'function') {
+                    try {
+                        window.addonStart();
+                    } catch(e) {
+                        console.log('Plugin init error:', e);
+                    }
+                }
+                
+                // Отправляем событие обновления плагинов
+                if (Lampa.Listener && Lampa.Listener.send) {
+                    Lampa.Listener.send('plugins', {type: 'updated'});
+                }
+                
+            }, 100);
         };
         
         script.onerror = function() {
-            console.error('Failed to load plugin:', name, url);
-            // Удаляем из активных при ошибке
-            disablePlugin(url, name);
+            console.error('Failed to load theme plugin:', name, url);
+            
+            // Удаляем из storage при ошибке
+            var activePlugins = Lampa.Storage.get('active_plugins', '[]');
+            try {
+                activePlugins = JSON.parse(activePlugins);
+                var index = -1;
+                for (var i = 0; i < activePlugins.length; i++) {
+                    if (activePlugins[i].url === url) {
+                        index = i;
+                        break;
+                    }
+                }
+                if (index > -1) {
+                    activePlugins.splice(index, 1);
+                    Lampa.Storage.set('active_plugins', JSON.stringify(activePlugins));
+                }
+            } catch(e) {
+                console.log('Error removing failed plugin from storage:', e);
+            }
+            
+            // Обновляем статус в DOM
+            setTimeout(function() {
+                if (nthChildIndex !== undefined && nthChildIndex !== null) {
+                    var pluginElement = $('.settings-param[data-name="drxaos_themes"]').eq(nthChildIndex);
+                    if (pluginElement.length) {
+                        pluginElement.find('.settings-param__status').removeClass('active error wait').addClass('error');
+                    }
+                }
+            }, 100);
         };
         
         // Добавляем в head
         var head = document.head || document.getElementsByTagName('head')[0];
         head.appendChild(script);
     }
-
-    // Удаление скрипта плагина
-    function removePluginScript(url) {
-        // Находим и удаляем script tag
-        var scripts = document.querySelectorAll('script[src="' + url + '"]');
-        scripts.forEach(function(script) {
-            script.parentNode.removeChild(script);
-        });
+    
+    // Функция удаления плагина
+    function deletePlugin(url, nthChildIndex) {
+        console.log('Removing theme plugin:', url);
         
-        console.log('Plugin script removed:', url);
-    }
-
-    // Обновление UI плагина
-    function updatePluginUI() {
-        var pluginKey = 'drxaos_themes_enabled';
-        var isEnabled = Lampa.Storage.get(pluginKey, 'false') === 'true';
-        
-        // Обновляем статус в DOM
-        $(document).find('[data-action="toggle_plugin"]').each(function() {
-            $(this).toggleClass('active', isEnabled);
-            var status = $(this).find('.settings-folder__status');
-            status.toggleClass('active', isEnabled);
-            
-            var nameEl = $(this).find('.settings-folder__name');
-            if (isEnabled) {
-                nameEl.html(nameEl.html().replace(' ✓', '')).append(' ✓');
-            } else {
-                nameEl.find(' ✓').remove();
-            }
-        });
-    }
-
-    // Проверка и активация плагинов при старте
-    function checkAndActivatePlugins() {
-        var pluginKey = 'drxaos_themes_enabled';
-        var pluginUrl = 'https://novyx0.github.io/my-plugins/drxaos_themes.js';
-        
-        // Проверяем storage
-        var isEnabled = Lampa.Storage.get(pluginKey, 'false') === 'true';
+        // Удаляем из storage активных плагинов
         var activePlugins = Lampa.Storage.get('active_plugins', '[]');
-        
         try {
             activePlugins = JSON.parse(activePlugins);
-            var shouldBeActive = isEnabled && activePlugins.includes(pluginUrl);
-            
-            if (shouldBeActive && !document.querySelector('script[src="' + pluginUrl + '"]')) {
-                // Плагин должен быть активен, но не загружен - загружаем
-                enablePlugin(pluginUrl, 'DrXaos Themes');
-            } else if (!isEnabled && document.querySelector('script[src="' + pluginUrl + '"]')) {
-                // Плагин отключен, но загружен - удаляем
-                disablePlugin(pluginUrl, 'DrXaos Themes');
+            var newPlugins = [];
+            for (var i = 0; i < activePlugins.length; i++) {
+                if (activePlugins[i].url !== url) {
+                    newPlugins.push(activePlugins[i]);
+                }
+            }
+            Lampa.Storage.set('active_plugins', JSON.stringify(newPlugins));
+        } catch(e) {
+            console.log('Error removing plugin from storage:', e);
+        }
+        
+        // Удаляем из общего списка плагинов
+        var pluginsArray = Lampa.Storage.get('plugins', '[]');
+        try {
+            pluginsArray = JSON.parse(pluginsArray);
+            var newPluginsArray = [];
+            for (var i = 0; i < pluginsArray.length; i++) {
+                if (pluginsArray[i].url !== url) {
+                    newPluginsArray.push(pluginsArray[i]);
+                }
+            }
+            Lampa.Storage.set('plugins', JSON.stringify(newPluginsArray));
+        } catch(e) {
+            console.log('Error updating plugins list:', e);
+        }
+        
+        // Удаляем script tag
+        var scripts = document.querySelectorAll('script[src="' + url + '"]');
+        scripts.forEach(function(script) {
+            if (script.parentNode) {
+                script.parentNode.removeChild(script);
+            }
+        });
+        
+        // Обновляем статус в DOM
+        setTimeout(function() {
+            if (nthChildIndex !== undefined && nthChildIndex !== null) {
+                var pluginElement = $('.settings-param[data-name="drxaos_themes"]').eq(nthChildIndex);
+                if (pluginElement.length) {
+                    pluginElement.find('.settings-param__status').removeClass('active error wait');
+                }
+            }
+        }, 100);
+        
+        console.log('Theme plugin removed:', url);
+        
+        // Перезагружаем страницу для полного очистки
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
+    }
+    
+    // Функция проверки статуса плагина
+    function checkPlugin(url) {
+        var pluginsArray = Lampa.Storage.get('plugins', '[]');
+        try {
+            pluginsArray = JSON.parse(pluginsArray);
+            for (var i = 0; i < pluginsArray.length; i++) {
+                if (pluginsArray[i].url === url) {
+                    return pluginsArray[i].status;
+                }
             }
         } catch(e) {
-            console.log('Error checking plugins', e);
+            console.log('Error checking plugin status:', e);
         }
+        return 0;
     }
-
-    // Делегирование событий для панели плагинов
-    $(document).on('hover:enter', '[data-action="toggle_plugin"]', function(e) {
-        e.preventDefault();
-        togglePlugin();
+    
+    // Ждем готовности Settings API
+    if (typeof Lampa === 'undefined' || !Lampa.SettingsApi) {
+        setTimeout(addonStart, 500);
+        return;
+    }
+    
+    // Проверяем, добавлен ли уже компонент
+    if ($('[data-component="addinterfaceplugin"]').length) {
+        console.log('Interface plugins component already exists');
+        // Проверяем и обновляем статус нашего плагина
+        var pluginUrl = 'https://novyx0.github.io/my-plugins/drxaos_themes.js';
+        var myResult = checkPlugin(pluginUrl);
+        var pluginStatus = null;
+        var pluginsArray = Lampa.Storage.get('plugins', '[]');
+        try {
+            pluginsArray = JSON.parse(pluginsArray);
+            for (var i = 0; i < pluginsArray.length; i++) {
+                if (pluginsArray[i].url === pluginUrl) {
+                    pluginStatus = pluginsArray[i].status;
+                    break;
+                }
+            }
+        } catch(e) {}
+        
+        setTimeout(function() {
+            var pluginElement = $('[data-name="drxaos_themes"]');
+            if (pluginElement.length) {
+                pluginElement.append('<div class="settings-param__status"></div>');
+                var statusDiv = pluginElement.find('.settings-param__status');
+                
+                if (myResult && pluginStatus != 0) {
+                    statusDiv.removeClass('active error wait').addClass('active');
+                } else if (pluginStatus == 0) {
+                    statusDiv.removeClass('active error wait').css('background-color', 'rgb(255, 165, 0)');
+                } else {
+                    statusDiv.removeClass('active error wait').addClass('error');
+                }
+            }
+        }, 100);
+        return;
+    }
+    
+    // Создаем компонент для интерфейсных плагинов
+    Lampa.SettingsApi.addComponent('addinterfaceplugin', {
+        name: 'Интерфейс',
+        type: 'folder',
+        icon: 'interface',
+        order: 10
     });
     
-    $(document).on('hover:enter', '[data-action="close"]', function(e) {
-        e.preventDefault();
-        Lampa.Settings.update({
-            title: 'Настройки',
-            component: 'main',
-            html: ''
-        });
+    // Добавляем наш плагин DrXaos Themes
+    var nthChildIndex = 0; // Только один плагин, индекс 0
+    
+    Lampa.SettingsApi.addParam({
+        component: 'addinterfaceplugin',
+        param: {
+            name: 'drxaos_themes',
+            type: 'select',
+            values: [
+                {id: '1', name: 'Включить'},
+                {id: '2', name: 'Выключить'}
+            ],
+            default: Lampa.Storage.get('drxaos_themes', '1'),
+            field: {
+                name: 'DrXaos Themes',
+                description: 'Темы интерфейса от DrXaos для персонализации Lampac'
+            },
+            onChange: function(value) {
+                var pluginUrl = 'https://novyx0.github.io/my-plugins/drxaos_themes.js';
+                if (value == '1') {
+                    itemON(pluginUrl, 'DrXaos Themes', '@novyx0', 'interface', nthChildIndex);
+                    console.log('nthChildIndex в itemON:', nthChildIndex);
+                }
+                if (value == '2') {
+                    deletePlugin(pluginUrl, nthChildIndex);
+                    console.log('nthChildIndex в deletePlugin:', nthChildIndex);
+                }
+            },
+            onRender: function(item) {
+                // Стилизуем название
+                item.find('.settings-param__name').css('color', '#f3d900');
+                
+                // Скрываем индикатор установки по умолчанию
+                item.addClass('hideInstall');
+                
+                // Проверяем статус плагина
+                var myResult = checkPlugin('https://novyx0.github.io/my-plugins/drxaos_themes.js');
+                var pluginStatus = null;
+                var pluginsArray = Lampa.Storage.get('plugins', '[]');
+                
+                setTimeout(function() {
+                    // Добавляем статусный индикатор
+                    item.append('<div class="settings-param__status"></div>');
+                    
+                    try {
+                        pluginsArray = JSON.parse(pluginsArray);
+                        for (var i = 0; i < pluginsArray.length; i++) {
+                            if (pluginsArray[i].url === 'https://novyx0.github.io/my-plugins/drxaos_themes.js') {
+                                pluginStatus = pluginsArray[i].status;
+                                break;
+                            }
+                        }
+                    } catch(e) {
+                        console.log('Error parsing plugins array:', e);
+                    }
+                    
+                    var statusDiv = item.find('.settings-param__status');
+                    
+                    if (myResult && pluginStatus != 0) {
+                        statusDiv.removeClass('active error wait').addClass('active');
+                    } else if (pluginStatus == 0) {
+                        statusDiv.removeClass('active error wait').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        statusDiv.removeClass('active error wait').addClass('error');
+                    }
+                }, 100);
+                
+                // Обработчик клика для фокуса
+                item.on('hover:enter', function(event) {
+                    nthChildIndex = $(this).index();
+                    var focusBackEvent = event;
+                    console.log('Plugin item clicked, nthChildIndex:', nthChildIndex);
+                });
+            }
+        }
     });
+    
+    // Создаем иконку для раздела интерфейсных плагинов
+    Lampa.SettingsApi.addParam({
+        component: 'addplugin',
+        param: {
+            name: 'addinterfaceplugin',
+            type: 'static',
+            default: true,
+            field: {
+                name: `
+                    <div class="settings-folder" style="padding: 0 !important">
+                        <div style="display: block; margin: 0 auto; height: 2.3em; padding-right: .1em;">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="#ffffff">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g style="fill: none; stroke: #ffffff; stroke-width: 12px; stroke-linecap: round; stroke-linejoin: round">
+                                        <path d="M 50,10 0,35"></path>
+                                        <path d="M 20,29 C 4,52 15,90 50,90 85,90 100,47 74,20"></path>
+                                    </g>
+                                    <path style="fill: #ffffff" d="M 2,21 29,-2 2,29"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div>Интерфейс</div>
+                    </div>
+                `,
+                description: `
+                    <div style="text-align: center;">
+                        Темы и модификации интерфейса
+                    </div>
+                `
+            },
+            onRender: function(item) {
+                item.on('hover:enter', function() {
+                    Lampa.Settings.create('addinterfaceplugin');
+                    Lampa.Controller.enabled().controller.back(function() {
+                        Lampa.Settings.create('addplugin');
+                    });
+                });
+            }
+        }
+    });
+    
+    console.log('Theme Manager Plugin fully initialized');
 }
 
-// Запуск плагина после загрузки DOM
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', addonStart);
-} else {
-    addonStart();
-}
+// Запускаем плагин
+addonStart();
 
-// Дополнительная проверка через интервал
+// Дополнительная проверка готовности через интервал
 var initCheck = setInterval(function() {
-    if (typeof Lampa !== 'undefined' && Lampa.Settings && Lampa.Settings.main) {
+    if (typeof Lampa !== 'undefined' && Lampa.SettingsApi) {
         clearInterval(initCheck);
         if (typeof addonStart === 'function') {
             addonStart();
         }
     }
-}, 200);
+}, 300);
 
-// Очистка интервала при загрузке
+// Остановка проверки после загрузки
 window.addEventListener('load', function() {
-    clearInterval(initCheck);
+    if (initCheck) {
+        clearInterval(initCheck);
+    }
 });
