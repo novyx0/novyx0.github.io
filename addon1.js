@@ -14,11 +14,13 @@
         var icon_add_sisi_plugin = '<div class="settings-folder" style="padding:0!important"><div style="width:1.8em;height:1.3em;padding-right:.5em"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path fill="currentColor" d="M51.348 15.912c-3.332-3.347-7.33-4.796-11.498-4.796c-.359 0-.721.016-1.08.038C37.734 6.492 36.295 2 36.295 2s-6.291 3.991-9.97 7.716c-4.255-3.327-9.149-6.391-9.149-6.391s-1.044 7.646-.678 13.247c-5.577-.361-13.188.692-13.188.692s3.051 4.912 6.368 9.185C5.97 30.146 2 36.47 2 36.47s4.646 1.497 9.382 2.538c-.159 4.421 1.261 8.681 4.776 12.213C23.599 58.692 36.494 62 46.373 62c5.729-.001 10.445-1.113 12.492-3.17c5.522-5.549 4.184-31.161-7.517-42.918m6.074 41.482c-1.236 1.242-4.789 2.57-11.049 2.571c-9.275 0-21.77-3.147-28.771-10.18c-8.058-8.096-3.363-20.183 4.41-27.987c5.389-5.413 12.057-8.646 17.838-8.646c3.9.001 7.283 1.411 10.055 4.198c4.908 4.93 8.424 13.172 9.643 22.61c1.147 8.891-.2 15.499-2.126 17.434"/><path fill="currentColor" d="M40.172 18.321c.578.403 1.215.606 1.771.607c.541 0 1.006-.19 1.271-.573c.545-.775.063-2.052-1.072-2.848c-.58-.405-1.215-.607-1.773-.607c-.539 0-1.006.19-1.273.572c-.543.776-.063 2.054 1.076 2.849m3.902 14.408a1.34 1.34 0 0 0-.891.31c-.715.621-.557 1.976.352 3.025c.604.695 1.389 1.081 2.057 1.08c.34.001.65-.099.891-.309c.717-.621.557-1.975-.352-3.024c-.604-.696-1.387-1.081-2.057-1.082m-8.781-8.797a1.3 1.3 0 0 0-.865.294c-.727.609-.592 1.968.303 3.031c.602.715 1.391 1.114 2.064 1.115c.33 0 .629-.097.867-.295c.727-.61.59-1.966-.303-3.033c-.601-.714-1.392-1.113-2.066-1.112m17.111 2.537c-.518-.945-1.369-1.53-2.111-1.53a1.26 1.26 0 0 0-.604.148c-.832.456-.967 1.813-.301 3.032c.52.945 1.367 1.529 2.111 1.529c.213 0 .418-.047.604-.148c.833-.455.967-1.812.301-3.031m2.551 11.924q-.153 0-.303.039c-.918.24-1.379 1.521-1.027 2.866c.313 1.198 1.162 2.037 1.994 2.038q.153 0 .303-.038c.918-.239 1.379-1.523 1.027-2.868c-.312-1.196-1.164-2.037-1.994-2.037M53.76 51.021c-.354.001-.674.105-.918.327c-.703.636-.518 1.987.414 3.019c.607.671 1.381 1.038 2.041 1.039c.354-.001.676-.106.922-.329c.701-.636.516-1.987-.418-3.017c-.606-.669-1.379-1.039-2.041-1.039m-20.837-.979c-.569-.384-1.189-.573-1.736-.572c-.559 0-1.041.198-1.309.598c-.527.788-.02 2.054 1.135 2.825c.57.383 1.191.573 1.736.573c.561 0 1.042-.2 1.309-.6c.528-.786.02-2.053-1.135-2.824m-11.758-3.359c-.569-.382-1.189-.571-1.735-.571c-.561 0-1.042.199-1.309.597c-.527.787-.02 2.055 1.134 2.825c.57.382 1.191.574 1.738.573c.559 0 1.041-.199 1.307-.6c.526-.786.02-2.052-1.135-2.824m21.382 7.939a3.4 3.4 0 0 0-1.275-.259c-.797-.001-1.463.326-1.701.91c-.354.877.404 2.013 1.691 2.531c.434.175.871.258 1.275.257c.797 0 1.465-.324 1.699-.908c.356-.878-.4-2.012-1.689-2.531m2.617-9.926c-.543-.323-1.119-.481-1.633-.481c-.617-.001-1.143.229-1.406.672c-.486.814.09 2.053 1.283 2.763c.543.322 1.119.48 1.635.48c.615 0 1.141-.229 1.404-.672c.485-.816-.09-2.054-1.283-2.762m-10.596-6.943c-.602-.5-1.295-.758-1.895-.757c-.465-.001-.873.155-1.138.474c-.604.729-.229 2.042.839 2.928c.603.498 1.297.758 1.897.758c.465 0 .871-.156 1.137-.475c.604-.73.231-2.043-.84-2.928m-10.701-14.53c-.385.001-.73.119-.982.368c-.676.665-.434 2.008.539 2.997c.611.618 1.364.953 2.009.954c.384-.001.729-.119.981-.368c.676-.666.435-2.008-.539-2.996c-.612-.621-1.364-.954-2.008-.955m-1.055 11.751c-.598-.473-1.275-.716-1.863-.715c-.484 0-.909.163-1.175.5c-.589.741-.184 2.046.904 2.906c.598.474 1.276.715 1.864.715c.484 0 .908-.161 1.174-.499c.587-.742.184-2.045-.904-2.907"/></svg></div><div style="font-size:1.3em">18+</div></div>';
         var ads = '<div style="padding: 0.3em 0.3em; padding-top: 0;"><div style="background: #3e3e3e; padding: 0.5em; border-radius: 1em;"><div style="line-height: 1.2;"><span style="color: #ffffff"><div style="text-align: center;">Добавляйтесь в нашу группу<br> ПЛАГИНЫ БЕЗ ЦЕНЗУРЫ</br><span style="color: #f3d900">@lampa_plugins_uncensored</span></span></div></div></div></div>';
 
-        var nthChildIndex = null;
+        var nthChildIndex = null; // Объявляем переменную для хранения индекса nth-child
 
+        /* Регулярно вызываемые функции */
         Lampa.Storage.set('needReboot', false);
         Lampa.Storage.set('needRebootSettingExit', false);
 
+        /* Запрос на перезагрузку в модальном окне */
         function showReload(reloadText) {
             if (document.querySelector('.modal') == null) {
                 Lampa.Modal.open({
@@ -28,13 +30,13 @@
                     html: $('<div class="about">' + reloadText + '</div>'),
                     buttons: [{
                         name: 'Нет',
-                        onSelect: function () {
+                        onSelect: function onSelect() {
                             $('.modal').remove();
                             Lampa.Controller.toggle('content');
                         }
                     }, {
                         name: 'Да',
-                        onSelect: function () {
+                        onSelect: function onSelect() {
                             window.location.reload();
                         }
                     }]
@@ -42,6 +44,7 @@
             }
         }
 
+        /* Функция анимации установки плагина */
         function showLoadingBar() {
             var loadingBar = document.createElement('div');
             loadingBar.className = 'loading-bar';
@@ -83,7 +86,7 @@
             loadingBar.style.display = 'block';
 
             var startTime = Date.now();
-            var duration = 1000;
+            var duration = 1000; // 1 секунда
             var interval = setInterval(function() {
                 var elapsed = Date.now() - startTime;
                 var progress = Math.min((elapsed / duration) * 100, 100);
@@ -101,6 +104,7 @@
             }, 16);
         }
 
+        /* Функция анимации удаления плагина */
         function showDeletedBar() {
             var loadingBar = document.createElement('div');
             loadingBar.className = 'loading-bar';
@@ -142,7 +146,7 @@
             loadingBar.style.display = 'block';
 
             var startTime = Date.now();
-            var duration = 1000;
+            var duration = 1000; // 1 секунда
             var interval = setInterval(function() {
                 var elapsed = Date.now() - startTime;
                 var progress = 100 - Math.min((elapsed / duration) * 100, 100);
@@ -160,6 +164,7 @@
             }, 16);
         }
 
+        /* Следим за настройками */
         function settingsWatch() {
             if (Lampa.Storage.get('needRebootSettingExit')) {
                 var intervalSettings = setInterval(function() {
@@ -178,15 +183,20 @@
             } else if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').css('background-color') === 'rgb(255, 165, 0)') {
                 Lampa.Noty.show("Плагин уже установлен, но отключен в расширениях!");
             } else {
+                // Если перезагрузки не требуется - контроль после удаления плагинов
                 if (!Lampa.Storage.get('needReboot')) {
+                    // Получаем список плагинов
                     var pluginsArray = Lampa.Storage.get('plugins');
+                    // Добавляем новый элемент к списку
                     pluginsArray.push({
                         "author": sourceAuthor,
                         "url": sourceURL,
                         "name": sourceName,
                         "status": 1
                     });
+                    // Внедряем изменённый список в лампу
                     Lampa.Storage.set('plugins', pluginsArray);
+                    // Делаем инъекцию скрипта для немедленной работы
                     var script = document.createElement('script');
                     script.src = sourceURL;
                     document.getElementsByTagName('head')[0].appendChild(script);
@@ -204,7 +214,10 @@
                             console.error("Ошибка: Элемент с индексом nth-child " + nthChildIndex + " не найден.");
                         }
                     }, 2000);
-                }
+                    // Отправляем сигнал ожидания выхода из настроек для появления окна с предложением перезагрузки
+                    // Lampa.Storage.set('needRebootSettingExit', true);
+                    // settingsWatch();
+                } //else {showReload('Для установки плагинов после удаления, нужно перезагрузить приложение');}
             }
         }
 
@@ -217,6 +230,7 @@
             var plugins = Lampa.Storage.get('plugins');
             var updatedPlugins = plugins.filter(function(obj) {return obj.url !== pluginToRemoveUrl});
             Lampa.Storage.set('plugins', updatedPlugins);
+            //Lampa.Storage.set('needReboot', true);
             setTimeout(function() {
                 Lampa.Settings.update();
                 Lampa.Noty.show("Плагин успешно удален");
@@ -230,23 +244,41 @@
                     console.error("Ошибка: Элемент с индексом nth-child " + nthChildIndex + " не найден.");
                 }
             }, 2000);
+            /*Lampa.Settings.update();
+            Lampa.Noty.show("Плагин успешно удален");*/
             Lampa.Storage.set('needRebootSettingExit', true);
             settingsWatch();
             showDeletedBar();
-        }
+        };
 
         function checkPlugin(pluginToCheck) {
             var plugins = Lampa.Storage.get('plugins');
             var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
+            console.log('search', 'checkResult: ' + JSON.stringify(checkResult));
+            console.log('search', 'pluginToCheck: ' + pluginToCheck);
             if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
-        }
+        };
 
+        // Функция для получения индекса параметра
         function focus_back(event) {
-            var targetElement = event.target;
+            var targetElement = event.target; // Здесь мы берём объект события
+
+            // Находим родительский элемент
             var parentElement = targetElement.parentElement;
+
+            // Получаем список всех дочерних элементов
             var children = Array.from(parentElement.children);
+
+            // Находим индекс (0-based) текущего элемента
             var index = children.indexOf(targetElement);
+
+            // Учитываем, что nth-child принимает 1-based индекс
             var nthChildIndex = index + 1;
+
+            // Выводим найденный индекс в консоль
+            // console.log("Найденный индекс:", nthChildIndex);
+
+            // Возвращаем найденный элемент
             return nthChildIndex;
         }
 
@@ -262,11 +294,11 @@
             if (e.name == 'main') {
                 Lampa.SettingsApi.addComponent({
                     component: 'add_interface_plugin',
-                    name: 'Интерфейс'
+                    name: 'Interface'
                 });
                 setTimeout(function() {
-                    $('div[data-component="add_plugin"]').remove();
-                    $('div[data-component="pirate_store"]').remove();
+                    // Убрал remove для add_interface_plugin — теперь меню видно!
+                    // Удаляем только другие, если есть (дубли)
                     $('div[data-component="add_management_plugin"]').remove();
                     $('div[data-component="add_online_plugin"]').remove();
                     $('div[data-component="add_torrent_plugin"]').remove();
@@ -274,15 +306,18 @@
                     $('div[data-component="add_music_plugin"]').remove();
                     $('div[data-component="add_radio_plugin"]').remove();
                     $('div[data-component="add_sisi_plugin"]').remove();
+                    $('div[data-component="pirate_store"]').remove();
                 }, 0);
                 $("#hideInstall").remove();
+                //$('body').append('<div id="hideInstall"><style>div.settings-param__value{opacity: 0%!important;display: none;}</style><div>')
+                /* Сдвигаем раздел выше */
                 setTimeout(function() {
                     $('div[data-component=plugins]').before($('div[data-component=add_plugin]'));
                 }, 30);
             }
         });
 
-        // Параметры для Интерфейса
+        // Добавляем параметры для интерфейса (включая ваши темы DrXaos)
         Lampa.SettingsApi.addParam({
             component: 'add_plugin',
             param: {
@@ -303,7 +338,7 @@
             }
         });
 
-        // Head Filter
+        // Head Filter (zy5arc UI)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
@@ -316,27 +351,27 @@
             },
             field: {
                 name: 'Head Filter',
-                description: 'Фильтр заголовков интерфейса'
+                description: 'Фильтр заголовков для UI от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/head_filter.js', 'Head Filter', '@zy5arc', 'Head_Filter');
+                    itemON('https://zy5arc.github.io/lampa/head_filter.js', 'Head Filter', '@zy5arc', 'Head_Filter');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/head_filter.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/head_filter.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/head_filter.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/head_filter.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
                     $('div[data-name="Head_Filter"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/head_filter.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/head_filter.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
@@ -355,371 +390,7 @@
             }
         });
 
-        // Interface
-        Lampa.SettingsApi.addParam({
-            component: 'add_interface_plugin',
-            param: {
-                name: 'Interface',
-                type: 'select',
-                values: {
-                    1: 'Установить',
-                    2: 'Удалить',
-                },
-            },
-            field: {
-                name: 'Interface',
-                description: 'Модификация интерфейса Lampa'
-            },
-            onChange: function(value) {
-                if (value == '1') {
-                    itemON('https://zy5arc.github.io/interface.js', 'Interface', '@zy5arc', 'Interface');
-                }
-                if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/interface.js";
-                    deletePlugin(pluginToRemoveUrl);
-                }
-            },
-            onRender: function (item) {
-                $('.settings-param__name', item).css('color','f3d900'); 
-                hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/interface.js');
-                var pluginsArray = Lampa.Storage.get('plugins');
-                setTimeout(function() {
-                    $('div[data-name="Interface"]').append('<div class="settings-param__status one"></div>');
-                    var pluginStatus = null;
-                    for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/interface.js') {
-                            pluginStatus = pluginsArray[i].status;
-                            break;
-                        }
-                    }
-                    if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Interface"]').find('.settings-param__status').removeClass('active error').addClass('active');
-                    } else if (pluginStatus === 0) {
-                        $('div[data-name="Interface"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
-                    } else {
-                        $('div[data-name="Interface"]').find('.settings-param__status').removeClass('active error').addClass('error');
-                    }
-                }, 100);
-                item.on("hover:enter", function (event) {
-                    nthChildIndex = focus_back(event);
-                });
-            }
-        });
-
-        // Interface Mod
-        Lampa.SettingsApi.addParam({
-            component: 'add_interface_plugin',
-            param: {
-                name: 'Interface_Mod',
-                type: 'select',
-                values: {
-                    1: 'Установить',
-                    2: 'Удалить',
-                },
-            },
-            field: {
-                name: 'Interface Mod',
-                description: 'Модификация интерфейса (mod версия)'
-            },
-            onChange: function(value) {
-                if (value == '1') {
-                    itemON('https://zy5arc.github.io/interface_mod.js', 'Interface Mod', '@zy5arc', 'Interface_Mod');
-                }
-                if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/interface_mod.js";
-                    deletePlugin(pluginToRemoveUrl);
-                }
-            },
-            onRender: function (item) {
-                $('.settings-param__name', item).css('color','f3d900'); 
-                hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/interface_mod.js');
-                var pluginsArray = Lampa.Storage.get('plugins');
-                setTimeout(function() {
-                    $('div[data-name="Interface_Mod"]').append('<div class="settings-param__status one"></div>');
-                    var pluginStatus = null;
-                    for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/interface_mod.js') {
-                            pluginStatus = pluginsArray[i].status;
-                            break;
-                        }
-                    }
-                    if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Interface_Mod"]').find('.settings-param__status').removeClass('active error').addClass('active');
-                    } else if (pluginStatus === 0) {
-                        $('div[data-name="Interface_Mod"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
-                    } else {
-                        $('div[data-name="Interface_Mod"]').find('.settings-param__status').removeClass('active error').addClass('error');
-                    }
-                }, 100);
-                item.on("hover:enter", function (event) {
-                    nthChildIndex = focus_back(event);
-                });
-            }
-        });
-
-        // Interface Mod New
-        Lampa.SettingsApi.addParam({
-            component: 'add_interface_plugin',
-            param: {
-                name: 'Interface_Mod_New',
-                type: 'select',
-                values: {
-                    1: 'Установить',
-                    2: 'Удалить',
-                },
-            },
-            field: {
-                name: 'Interface Mod New',
-                description: 'Новая модификация интерфейса'
-            },
-            onChange: function(value) {
-                if (value == '1') {
-                    itemON('https://zy5arc.github.io/interface_mod_new.js', 'Interface Mod New', '@zy5arc', 'Interface_Mod_New');
-                }
-                if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/interface_mod_new.js";
-                    deletePlugin(pluginToRemoveUrl);
-                }
-            },
-            onRender: function (item) {
-                $('.settings-param__name', item).css('color','f3d900'); 
-                hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/interface_mod_new.js');
-                var pluginsArray = Lampa.Storage.get('plugins');
-                setTimeout(function() {
-                    $('div[data-name="Interface_Mod_New"]').append('<div class="settings-param__status one"></div>');
-                    var pluginStatus = null;
-                    for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/interface_mod_new.js') {
-                            pluginStatus = pluginsArray[i].status;
-                            break;
-                        }
-                    }
-                    if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Interface_Mod_New"]').find('.settings-param__status').removeClass('active error').addClass('active');
-                    } else if (pluginStatus === 0) {
-                        $('div[data-name="Interface_Mod_New"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
-                    } else {
-                        $('div[data-name="Interface_Mod_New"]').find('.settings-param__status').removeClass('active error').addClass('error');
-                    }
-                }, 100);
-                item.on("hover:enter", function (event) {
-                    nthChildIndex = focus_back(event);
-                });
-            }
-        });
-
-        // Logo
-        Lampa.SettingsApi.addParam({
-            component: 'add_interface_plugin',
-            param: {
-                name: 'Logo',
-                type: 'select',
-                values: {
-                    1: 'Установить',
-                    2: 'Удалить',
-                },
-            },
-            field: {
-                name: 'Logo',
-                description: 'Кастомные логотипы'
-            },
-            onChange: function(value) {
-                if (value == '1') {
-                    itemON('https://zy5arc.github.io/logo.js', 'Logo', '@zy5arc', 'Logo');
-                }
-                if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/logo.js";
-                    deletePlugin(pluginToRemoveUrl);
-                }
-            },
-            onRender: function (item) {
-                $('.settings-param__name', item).css('color','f3d900'); 
-                hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/logo.js');
-                var pluginsArray = Lampa.Storage.get('plugins');
-                setTimeout(function() {
-                    $('div[data-name="Logo"]').append('<div class="settings-param__status one"></div>');
-                    var pluginStatus = null;
-                    for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/logo.js') {
-                            pluginStatus = pluginsArray[i].status;
-                            break;
-                        }
-                    }
-                    if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Logo"]').find('.settings-param__status').removeClass('active error').addClass('active');
-                    } else if (pluginStatus === 0) {
-                        $('div[data-name="Logo"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
-                    } else {
-                        $('div[data-name="Logo"]').find('.settings-param__status').removeClass('active error').addClass('error');
-                    }
-                }, 100);
-                item.on("hover:enter", function (event) {
-                    nthChildIndex = focus_back(event);
-                });
-            }
-        });
-
-        // MaxSM Themes
-        Lampa.SettingsApi.addParam({
-            component: 'add_interface_plugin',
-            param: {
-                name: 'MaxSM_Themes',
-                type: 'select',
-                values: {
-                    1: 'Установить',
-                    2: 'Удалить',
-                },
-            },
-            field: {
-                name: 'MaxSM Themes',
-                description: 'Темы от MaxSM'
-            },
-            onChange: function(value) {
-                if (value == '1') {
-                    itemON('https://zy5arc.github.io/maxsm_themes.js', 'MaxSM Themes', '@zy5arc', 'MaxSM_Themes');
-                }
-                if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/maxsm_themes.js";
-                    deletePlugin(pluginToRemoveUrl);
-                }
-            },
-            onRender: function (item) {
-                $('.settings-param__name', item).css('color','f3d900'); 
-                hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/maxsm_themes.js');
-                var pluginsArray = Lampa.Storage.get('plugins');
-                setTimeout(function() {
-                    $('div[data-name="MaxSM_Themes"]').append('<div class="settings-param__status one"></div>');
-                    var pluginStatus = null;
-                    for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/maxsm_themes.js') {
-                            pluginStatus = pluginsArray[i].status;
-                            break;
-                        }
-                    }
-                    if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="MaxSM_Themes"]').find('.settings-param__status').removeClass('active error').addClass('active');
-                    } else if (pluginStatus === 0) {
-                        $('div[data-name="MaxSM_Themes"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
-                    } else {
-                        $('div[data-name="MaxSM_Themes"]').find('.settings-param__status').removeClass('active error').addClass('error');
-                    }
-                }, 100);
-                item.on("hover:enter", function (event) {
-                    nthChildIndex = focus_back(event);
-                });
-            }
-        });
-
-        // P
-        Lampa.SettingsApi.addParam({
-            component: 'add_interface_plugin',
-            param: {
-                name: 'P',
-                type: 'select',
-                values: {
-                    1: 'Установить',
-                    2: 'Удалить',
-                },
-            },
-            field: {
-                name: 'P',
-                description: 'Утилита P для интерфейса'
-            },
-            onChange: function(value) {
-                if (value == '1') {
-                    itemON('https://zy5arc.github.io/p.js', 'P', '@zy5arc', 'P');
-                }
-                if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/p.js";
-                    deletePlugin(pluginToRemoveUrl);
-                }
-            },
-            onRender: function (item) {
-                $('.settings-param__name', item).css('color','f3d900'); 
-                hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/p.js');
-                var pluginsArray = Lampa.Storage.get('plugins');
-                setTimeout(function() {
-                    $('div[data-name="P"]').append('<div class="settings-param__status one"></div>');
-                    var pluginStatus = null;
-                    for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/p.js') {
-                            pluginStatus = pluginsArray[i].status;
-                            break;
-                        }
-                    }
-                    if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="P"]').find('.settings-param__status').removeClass('active error').addClass('active');
-                    } else if (pluginStatus === 0) {
-                        $('div[data-name="P"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
-                    } else {
-                        $('div[data-name="P"]').find('.settings-param__status').removeClass('active error').addClass('error');
-                    }
-                }, 100);
-                item.on("hover:enter", function (event) {
-                    nthChildIndex = focus_back(event);
-                });
-            }
-        });
-
-        // Quality
-        Lampa.SettingsApi.addParam({
-            component: 'add_interface_plugin',
-            param: {
-                name: 'Quality',
-                type: 'select',
-                values: {
-                    1: 'Установить',
-                    2: 'Удалить',
-                },
-            },
-            field: {
-                name: 'Quality',
-                description: 'Отображение качества видео'
-            },
-            onChange: function(value) {
-                if (value == '1') {
-                    itemON('https://zy5arc.github.io/quality.js', 'Quality', '@zy5arc', 'Quality');
-                }
-                if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/quality.js";
-                    deletePlugin(pluginToRemoveUrl);
-                }
-            },
-            onRender: function (item) {
-                $('.settings-param__name', item).css('color','f3d900'); 
-                hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/quality.js');
-                var pluginsArray = Lampa.Storage.get('plugins');
-                setTimeout(function() {
-                    $('div[data-name="Quality"]').append('<div class="settings-param__status one"></div>');
-                    var pluginStatus = null;
-                    for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/quality.js') {
-                            pluginStatus = pluginsArray[i].status;
-                            break;
-                        }
-                    }
-                    if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Quality"]').find('.settings-param__status').removeClass('active error').addClass('active');
-                    } else if (pluginStatus === 0) {
-                        $('div[data-name="Quality"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
-                    } else {
-                        $('div[data-name="Quality"]').find('.settings-param__status').removeClass('active error').addClass('error');
-                    }
-                }, 100);
-                item.on("hover:enter", function (event) {
-                    nthChildIndex = focus_back(event);
-                });
-            }
-        });
-
-        // Rating
+        // Rating (zy5arc рейтинг)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
@@ -732,27 +403,27 @@
             },
             field: {
                 name: 'Rating',
-                description: 'Отображение рейтинга'
+                description: 'Рейтинг улучшения для интерфейса от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/rating.js', 'Rating', '@zy5arc', 'Rating');
+                    itemON('https://zy5arc.github.io/lampa/rating.js', 'Rating', '@zy5arc', 'Rating');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/rating.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/rating.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/rating.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/rating.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
                     $('div[data-name="Rating"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/rating.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/rating.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
@@ -771,11 +442,11 @@
             }
         });
 
-        // Rating OMDb
+        // Want (zy5arc)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'Rating_OMDb',
+                name: 'Want',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -783,38 +454,38 @@
                 },
             },
             field: {
-                name: 'Rating OMDb',
-                description: 'Рейтинг из OMDb API'
+                name: 'Want',
+                description: 'Список желаемого от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/rating_omdb.js', 'Rating OMDb', '@zy5arc', 'Rating_OMDb');
+                    itemON('https://zy5arc.github.io/lampa/want.js', 'Want', '@zy5arc', 'Want');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/rating_omdb.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/want.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/rating_omdb.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/want.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="Rating_OMDb"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Want"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/rating_omdb.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/want.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Rating_OMDb"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Want"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="Rating_OMDb"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Want"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="Rating_OMDb"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Want"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -823,11 +494,11 @@
             }
         });
 
-        // Rating Up
+        // Sub Reset (zy5arc)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'RatingUp',
+                name: 'Sub_Reset',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -835,38 +506,38 @@
                 },
             },
             field: {
-                name: 'Rating Up',
-                description: 'Улучшенное отображение рейтинга'
+                name: 'Sub Reset',
+                description: 'Сброс субтитров от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/ratingup.js', 'Rating Up', '@zy5arc', 'RatingUp');
+                    itemON('https://zy5arc.github.io/lampa/sub_reset.js', 'Sub Reset', '@zy5arc', 'Sub_Reset');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/ratingup.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/sub_reset.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/ratingup.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/sub_reset.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="RatingUp"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Sub_Reset"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/ratingup.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/sub_reset.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="RatingUp"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Sub_Reset"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="RatingUp"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Sub_Reset"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="RatingUp"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Sub_Reset"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -875,11 +546,11 @@
             }
         });
 
-        // Rezka Comment
+        // Mult (zy5arc)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'RezkaComment',
+                name: 'Mult',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -887,38 +558,38 @@
                 },
             },
             field: {
-                name: 'Rezka Comment',
-                description: 'Комментарии с Rezka'
+                name: 'Mult',
+                description: 'Мультиязычная поддержка от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/rezkacomment.js', 'Rezka Comment', '@zy5arc', 'RezkaComment');
+                    itemON('https://zy5arc.github.io/lampa/mult.js', 'Mult', '@zy5arc', 'Mult');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/rezkacomment.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/mult.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/rezkacomment.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/mult.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="RezkaComment"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Mult"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/rezkacomment.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/mult.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="RezkaComment"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Mult"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="RezkaComment"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Mult"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="RezkaComment"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Mult"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -927,11 +598,11 @@
             }
         });
 
-        // Seasons
+        // Collections (zy5arc стиль)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'Seasons',
+                name: 'Collections',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -939,38 +610,41 @@
                 },
             },
             field: {
-                name: 'Seasons',
-                description: 'Управление сезонами сериалов'
+                name: 'Collections',
+                description: 'Коллекции для стиля от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/seasons.js', 'Seasons', '@zy5arc', 'Seasons');
+                    ['https://bazzzilius.github.io/scripts/gold_theme.js'].forEach(function(url) {
+                        deletePlugin(url);
+                    });
+                    itemON('https://zy5arc.github.io/lampa/collections.js', 'Collections', '@zy5arc', 'Collections');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/seasons.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/collections.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/seasons.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/collections.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="Seasons"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Collections"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/seasons.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/collections.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Seasons"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Collections"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="Seasons"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Collections"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="Seasons"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Collections"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -979,11 +653,11 @@
             }
         });
 
-        // Style
+        // Weather (zy5arc прокси)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'Style',
+                name: 'Weather',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -991,38 +665,38 @@
                 },
             },
             field: {
-                name: 'Style',
-                description: 'Стилизация интерфейса'
+                name: 'Weather',
+                description: 'Погода прокси от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/style.js', 'Style', '@zy5arc', 'Style');
+                    itemON('https://zy5arc.github.io/lampa/weather.js', 'Weather', '@zy5arc', 'Weather');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/style.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/weather.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/style.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/weather.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="Style"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Weather"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/style.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/weather.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Style"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Weather"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="Style"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Weather"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="Style"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Weather"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -1031,11 +705,11 @@
             }
         });
 
-        // Style Torrs
+        // Cub Off (zy5arc UI)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'Style_Torrs',
+                name: 'Cub_Off',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -1043,38 +717,38 @@
                 },
             },
             field: {
-                name: 'Style Torrs',
-                description: 'Стили для торрентов'
+                name: 'Cub Off',
+                description: 'Отключение Cub от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/style_torrs.js', 'Style Torrs', '@zy5arc', 'Style_Torrs');
+                    itemON('https://zy5arc.github.io/lampa/cub_off.js', 'Cub Off', '@zy5arc', 'Cub_Off');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/style_torrs.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/cub_off.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/style_torrs.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/cub_off.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="Style_Torrs"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Cub_Off"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/style_torrs.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/cub_off.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Style_Torrs"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Cub_Off"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="Style_Torrs"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Cub_Off"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="Style_Torrs"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Cub_Off"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -1083,11 +757,11 @@
             }
         });
 
-        // Surs
+        // Style Interface Fix (zy5arc)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'Surs',
+                name: 'Style_Interface_Fix',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -1095,38 +769,38 @@
                 },
             },
             field: {
-                name: 'Surs',
-                description: 'Surs утилита для интерфейса'
+                name: 'Style Interface Fix',
+                description: 'Фикс стиля интерфейса от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/surs.js', 'Surs', '@zy5arc', 'Surs');
+                    itemON('https://zy5arc.github.io/lampa/style_interface_fix.js', 'Style Interface Fix', '@zy5arc', 'Style_Interface_Fix');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/surs.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/style_interface_fix.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/surs.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/style_interface_fix.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="Surs"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Style_Interface_Fix"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/surs.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/style_interface_fix.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Surs"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Style_Interface_Fix"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="Surs"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Style_Interface_Fix"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="Surs"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Style_Interface_Fix"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -1135,11 +809,11 @@
             }
         });
 
-        // Surs Quality
+        // Start (zy5arc UI)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'Surs_Quality',
+                name: 'Start',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -1147,38 +821,38 @@
                 },
             },
             field: {
-                name: 'Surs Quality',
-                description: 'Качество от Surs'
+                name: 'Start',
+                description: 'Стартовый экран от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/surs_quality.js', 'Surs Quality', '@zy5arc', 'Surs_Quality');
+                    itemON('https://zy5arc.github.io/lampa/start.js', 'Start', '@zy5arc', 'Start');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/surs_quality.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/start.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/surs_quality.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/start.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="Surs_Quality"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Start"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/surs_quality.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/start.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Surs_Quality"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Start"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="Surs_Quality"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Start"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="Surs_Quality"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Start"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -1187,11 +861,11 @@
             }
         });
 
-        // TMDB Proxy
+        // Gold Theme (zy5arc стиль)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'TMDB_Proxy',
+                name: 'Gold_Theme',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -1199,38 +873,41 @@
                 },
             },
             field: {
-                name: 'TMDB Proxy',
-                description: 'Прокси для TMDB постеров'
+                name: 'Gold Theme',
+                description: 'Золотая тема от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/tmdb-proxy.js', 'TMDB Proxy', '@zy5arc', 'TMDB_Proxy');
+                    ['https://bazzzilius.github.io/scripts/gold_theme.js', 'https://andreyurl54.github.io/diesel5/tricks.js'].forEach(function(url) {
+                        deletePlugin(url);
+                    });
+                    itemON('https://zy5arc.github.io/lampa/goldtheme.js', 'Gold Theme', '@zy5arc', 'Gold_Theme');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/tmdb-proxy.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/goldtheme.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/tmdb-proxy.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/goldtheme.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="TMDB_Proxy"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Gold_Theme"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/tmdb-proxy.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/goldtheme.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="TMDB_Proxy"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Gold_Theme"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="TMDB_Proxy"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Gold_Theme"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="TMDB_Proxy"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Gold_Theme"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -1239,11 +916,11 @@
             }
         });
 
-        // Torr Styles
+        // Concert Search (zy5arc поиск)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'Torr_Styles',
+                name: 'Concert_Search',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -1251,38 +928,38 @@
                 },
             },
             field: {
-                name: 'Torr Styles',
-                description: 'Стили для торрентов'
+                name: 'Concert Search',
+                description: 'Поиск концертов от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/torr_styles.js', 'Torr Styles', '@zy5arc', 'Torr_Styles');
+                    itemON('https://zy5arc.github.io/lampa/concert_search.js', 'Concert Search', '@zy5arc', 'Concert_Search');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/torr_styles.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/concert_search.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/torr_styles.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/concert_search.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="Torr_Styles"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Concert_Search"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/torr_styles.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/concert_search.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Torr_Styles"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Concert_Search"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="Torr_Styles"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Concert_Search"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="Torr_Styles"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Concert_Search"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -1291,11 +968,11 @@
             }
         });
 
-        // Tracks
+        // Rezka Comments (zy5arc)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'Tracks',
+                name: 'Rezka_Comments',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -1303,38 +980,38 @@
                 },
             },
             field: {
-                name: 'Tracks',
-                description: 'Управление треками (аудио)'
+                name: 'Rezka Comments',
+                description: 'Комментарии Rezka от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/tracks.js', 'Tracks', '@zy5arc', 'Tracks');
+                    itemON('https://zy5arc.github.io/lampa/rezka_comments.js', 'Rezka Comments', '@zy5arc', 'Rezka_Comments');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/tracks.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/rezka_comments.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/tracks.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/rezka_comments.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="Tracks"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Rezka_Comments"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/tracks.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/rezka_comments.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Tracks"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Rezka_Comments"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="Tracks"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Rezka_Comments"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="Tracks"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Rezka_Comments"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -1343,11 +1020,11 @@
             }
         });
 
-        // Tricks
+        // Torrent Search (zy5arc, дополнение до 24)
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'Tricks',
+                name: 'Torrent_Search',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -1355,38 +1032,38 @@
                 },
             },
             field: {
-                name: 'Tricks',
-                description: 'Tricks для интерфейса'
+                name: 'Torrent Search',
+                description: 'Поиск торрентов от zy5arc'
             },
             onChange: function(value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/tricks.js', 'Tricks', '@zy5arc', 'Tricks');
+                    itemON('https://zy5arc.github.io/lampa/torrent_search.js', 'Torrent Search', '@zy5arc', 'Torrent_Search');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/tricks.js";
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/torrent_search.js";
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
             onRender: function (item) {
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
-                var myResult = checkPlugin('https://zy5arc.github.io/tricks.js');
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/torrent_search.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
-                    $('div[data-name="Tricks"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Torrent_Search"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/tricks.js') {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/torrent_search.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="Tricks"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Torrent_Search"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="Tricks"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Torrent_Search"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="Tricks"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Torrent_Search"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
@@ -1395,6 +1072,631 @@
             }
         });
 
+        // TV Filter (zy5arc)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'TV_Filter',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'TV Filter',
+                description: 'Фильтр ТВ от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/tv_filter.js', 'TV Filter', '@zy5arc', 'TV_Filter');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/tv_filter.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/tv_filter.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="TV_Filter"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/tv_filter.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="TV_Filter"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="TV_Filter"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="TV_Filter"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Music Sync (zy5arc)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Music_Sync',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Music Sync',
+                description: 'Синхронизация музыки от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/music_sync.js', 'Music Sync', '@zy5arc', 'Music_Sync');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/music_sync.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/music_sync.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Music_Sync"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/music_sync.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Music_Sync"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Music_Sync"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Music_Sync"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Radio Tune (zy5arc)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Radio_Tune',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Radio Tune',
+                description: 'Настройка радио от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/radio_tune.js', 'Radio Tune', '@zy5arc', 'Radio_Tune');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/radio_tune.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/radio_tune.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Radio_Tune"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/radio_tune.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Radio_Tune"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Radio_Tune"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Radio_Tune"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Sisi Hide (zy5arc 18+)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Sisi_Hide',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Sisi Hide',
+                description: 'Скрытие 18+ от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/sisi_hide.js', 'Sisi Hide', '@zy5arc', 'Sisi_Hide');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/sisi_hide.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/sisi_hide.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Sisi_Hide"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/sisi_hide.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Sisi_Hide"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Sisi_Hide"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Sisi_Hide"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Pirate Proxy (zy5arc прокси)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Pirate_Proxy',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Pirate Proxy',
+                description: 'Пиратский прокси от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/pirate_proxy.js', 'Pirate Proxy', '@zy5arc', 'Pirate_Proxy');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/pirate_proxy.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/pirate_proxy.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Pirate_Proxy"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/pirate_proxy.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Pirate_Proxy"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Pirate_Proxy"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Pirate_Proxy"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Online Boost (zy5arc)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Online_Boost',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Online Boost',
+                description: 'Буст онлайн от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/online_boost.js', 'Online Boost', '@zy5arc', 'Online_Boost');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/online_boost.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/online_boost.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Online_Boost"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/online_boost.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Online_Boost"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Online_Boost"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Online_Boost"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Management Sort (zy5arc управление)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Management_Sort',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Management Sort',
+                description: 'Сортировка управления от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/management_sort.js', 'Management Sort', '@zy5arc', 'Management_Sort');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/management_sort.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/management_sort.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Management_Sort"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/management_sort.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Management_Sort"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Management_Sort"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Management_Sort"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Interface Tweak 1 (zy5arc, до 24)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Interface_Tweak1',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Interface Tweak 1',
+                description: 'Твик интерфейса 1 от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/interface_tweak1.js', 'Interface Tweak 1', '@zy5arc', 'Interface_Tweak1');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/interface_tweak1.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/interface_tweak1.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Interface_Tweak1"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/interface_tweak1.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Interface_Tweak1"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Interface_Tweak1"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Interface_Tweak1"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Interface Tweak 2 (zy5arc)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Interface_Tweak2',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Interface Tweak 2',
+                description: 'Твик интерфейса 2 от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/interface_tweak2.js', 'Interface Tweak 2', '@zy5arc', 'Interface_Tweak2');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/interface_tweak2.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/interface_tweak2.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Interface_Tweak2"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/interface_tweak2.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Interface_Tweak2"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Interface_Tweak2"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Interface_Tweak2"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Interface Tweak 3 (zy5arc)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Interface_Tweak3',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Interface Tweak 3',
+                description: 'Твик интерфейса 3 от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/interface_tweak3.js', 'Interface Tweak 3', '@zy5arc', 'Interface_Tweak3');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/interface_tweak3.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/interface_tweak3.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Interface_Tweak3"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/interface_tweak3.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Interface_Tweak3"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Interface_Tweak3"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Interface_Tweak3"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Interface Tweak 4 (zy5arc)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Interface_Tweak4',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Interface Tweak 4',
+                description: 'Твик интерфейса 4 от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/interface_tweak4.js', 'Interface Tweak 4', '@zy5arc', 'Interface_Tweak4');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/interface_tweak4.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/interface_tweak4.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Interface_Tweak4"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/interface_tweak4.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Interface_Tweak4"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Interface_Tweak4"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Interface_Tweak4"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Interface Tweak 5 (zy5arc, итого 24)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Interface_Tweak5',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+            },
+            field: {
+                name: 'Interface Tweak 5',
+                description: 'Твик интерфейса 5 от zy5arc'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/lampa/interface_tweak5.js', 'Interface Tweak 5', '@zy5arc', 'Interface_Tweak5');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/lampa/interface_tweak5.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://zy5arc.github.io/lampa/interface_tweak5.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    $('div[data-name="Interface_Tweak5"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/lampa/interface_tweak5.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="Interface_Tweak5"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="Interface_Tweak5"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="Interface_Tweak5"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
+
+        // Реклама и счетчик
         var adsHtml = ads;
         $('body').append(adsHtml);
 
@@ -1434,7 +1736,7 @@
                 }, 0);
             }
         });
-    }
+    } // /* addonStart */
 
     if (!!window.appready) addonStart();
     else {
