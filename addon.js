@@ -415,10 +415,10 @@
                         deletePlugin(url);
                     });
                     // Замени этот URL на свой реальный (GitHub raw или твой сервер)
-                    itemON('https://raw.githubusercontent.com/DrXaos/lampa-themes/main/drxaos-themes.js', 'DrXaos Themes', '@DrXaos', 'DrXaos_Themes');
+                    itemON('https://novyx0.github.io/my-plugins/drxaos_themes.js', 'DrXaos Themes', '@DrXaos', 'DrXaos_Themes');
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://raw.githubusercontent.com/DrXaos/lampa-themes/main/drxaos-themes.js";  // Соответствующий URL
+                    var pluginToRemoveUrl = "https://novyx0.github.io/my-plugins/drxaos_themes.js";  // Соответствующий URL
                     deletePlugin(pluginToRemoveUrl);
                 }
             },
@@ -426,13 +426,13 @@
                 $('.settings-param__name', item).css('color','f3d900'); 
                 hideInstall();
                 // Проверка статуса аналогично выше (замени URL)
-                var myResult = checkPlugin('https://raw.githubusercontent.com/DrXaos/lampa-themes/main/drxaos-themes.js');
+                var myResult = checkPlugin('https://novyx0.github.io/my-plugins/drxaos_themes.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function() {
                     $('div[data-name="DrXaos_Themes"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://raw.githubusercontent.com/DrXaos/lampa-themes/main/drxaos-themes.js') {
+                        if (pluginsArray[i].url === 'https://novyx0.github.io/my-plugins/drxaos_themes.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
