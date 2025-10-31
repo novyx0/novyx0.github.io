@@ -183,15 +183,20 @@
             } else if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').css('background-color') === 'rgb(255, 165, 0)') {
                 Lampa.Noty.show("Плагин уже установлен, но отключен в расширениях!");
             } else {
+                // Если перезагрузки не требуется - контроль после удаления плагинов
                 if (!Lampa.Storage.get('needReboot')) {
+                    // Получаем список плагинов
                     var pluginsArray = Lampa.Storage.get('plugins');
+                    // Добавляем новый элемент к списку
                     pluginsArray.push({
                         "author": sourceAuthor,
                         "url": sourceURL,
                         "name": sourceName,
                         "status": 1
                     });
+                    // Внедряем изменённый список в лампу
                     Lampa.Storage.set('plugins', pluginsArray);
+                    // Делаем инъекцию скрипта для немедленной работы
                     var script = document.createElement('script');
                     script.src = sourceURL;
                     document.getElementsByTagName('head')[0].appendChild(script);
@@ -209,20 +214,23 @@
                             console.error("Ошибка: Элемент с индексом nth-child " + nthChildIndex + " не найден.");
                         }
                     }, 2000);
-                }
+                    // Отправляем сигнал ожидания выхода из настроек для появления окна с предложением перезагрузки
+                    // Lampa.Storage.set('needRebootSettingExit', true);
+                    // settingsWatch();
+                } //else {showReload('Для установки плагинов после удаления, нужно перезагрузить приложение');}
             }
         }
 
         function hideInstall() {
-            if ($("#hideInstall").length === 0) {
-                $('body').append('<div id="hideInstall"><style>div.settings-param__value{opacity: 0%!important;display: none;}</style><div>');
-            }
+            $("#hideInstall").remove();
+            $('body').append('<div id="hideInstall"><style>div.settings-param__value{opacity: 0%!important;display: none;}</style><div>');
         }
 
         function deletePlugin(pluginToRemoveUrl) {
             var plugins = Lampa.Storage.get('plugins');
             var updatedPlugins = plugins.filter(function(obj) {return obj.url !== pluginToRemoveUrl});
             Lampa.Storage.set('plugins', updatedPlugins);
+            //Lampa.Storage.set('needReboot', true);
             setTimeout(function() {
                 Lampa.Settings.update();
                 Lampa.Noty.show("Плагин успешно удален");
@@ -236,266 +244,342 @@
                     console.error("Ошибка: Элемент с индексом nth-child " + nthChildIndex + " не найден.");
                 }
             }, 2000);
+            /*Lampa.Settings.update();
+            Lampa.Noty.show("Плагин успешно удален");*/
             Lampa.Storage.set('needRebootSettingExit', true);
             settingsWatch();
             showDeletedBar();
-        }
+        };
 
         function checkPlugin(pluginToCheck) {
-            var plugins = Lampa.Storage.get('plugins') || [];
+            var plugins = Lampa.Storage.get('plugins');
             var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
             console.log('search', 'checkResult: ' + JSON.stringify(checkResult));
             console.log('search', 'pluginToCheck: ' + pluginToCheck);
-            return JSON.stringify(checkResult) !== '[]';
-        }
+            if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
+        };
 
         // Функция для получения индекса параметра
         function focus_back(event) {
-            var targetElement = event.target;
-            var parentElement = targetElement.closest('.selector'); // Лучше использовать closest для селекта
-            if (!parentElement) parentElement = targetElement.parentElement;
-            var children = Array.from(parentElement.children || parentElement.childNodes);
-            var index = Array.from(parentElement.parentNode.children).indexOf(parentElement);
+            var targetElement = event.target; // Здесь мы берём объект события
+
+            // Находим родительский элемент
+            var parentElement = targetElement.parentElement;
+
+            // Получаем список всех дочерних элементов
+            var children = Array.from(parentElement.children);
+
+            // Находим индекс (0-based) текущего элемента
+            var index = children.indexOf(targetElement);
+
+            // Учитываем, что nth-child принимает 1-based индекс
             var nthChildIndex = index + 1;
+
+            // Выводим найденный индекс в консоль
+            // console.log("Найденный индекс:", nthChildIndex);
+
+            // Возвращаем найденный элемент
             return nthChildIndex;
         }
 
-        // Проверка готовности Lampa
-        if (typeof Lampa === 'undefined' || !Lampa.SettingsApi) {
-            setTimeout(addonStart, 100);
-            return;
-        }
+        /* Компонент */
+        Lampa.SettingsApi.addComponent({
+            component: 'add_plugin',
+            name: 'Плагины',
+            icon: icon_add_plugin
+        });
 
-        // Добавляем компонент только если не существует
-        var componentExists = Lampa.SettingsApi.components.some(function(comp) { return comp.component === 'add_plugin'; });
-        if (!componentExists) {
-            Lampa.SettingsApi.addComponent({
-                component: 'add_plugin',
-                name: 'Плагины',
-                icon: icon_add_plugin
-            });
-        }
-
-        /* Listener для main */
+        /* Интерфейс */
         Lampa.Settings.listener.follow('open', function (e) {
             if (e.name == 'main') {
-                // Удаляем дубли компонентов, если они добавлены
-                ['add_interface_plugin', 'add_management_plugin', 'add_online_plugin', 'add_torrent_plugin', 'add_tv_plugin', 'add_music_plugin', 'add_radio_plugin', 'add_sisi_plugin', 'pirate_store'].forEach(function(comp) {
-                    if ($('div[data-component="' + comp + '"]').length > 0) {
-                        $('div[data-component="' + comp + '"]').remove();
-                    }
-                });
-                hideInstall();
+                // Добавляем только если не существует (избегаем дублей)
+                if (!$('div[data-component="add_interface_plugin"]').length) {
+                    Lampa.SettingsApi.addComponent({
+                        component: 'add_interface_plugin',
+                        name: 'Интерфейс',  // Исправил на русский для consistency
+                        icon: icon_add_interface_plugin  // Добавил иконку
+                    });
+                }
                 setTimeout(function() {
-                    var pluginComp = $('div[data-component=plugins]');
-                    var addPluginComp = $('div[data-component=add_plugin]');
-                    if (pluginComp.length && addPluginComp.length) {
-                        pluginComp.before(addPluginComp);
-                    }
-                }, 50);
+                    // Удаляем только существующие дубли других компонентов, не трогаем add_interface_plugin
+                    ['add_management_plugin', 'add_online_plugin', 'add_torrent_plugin', 'add_tv_plugin', 'add_music_plugin', 'add_radio_plugin', 'add_sisi_plugin', 'pirate_store'].forEach(function(comp) {
+                        if ($('div[data-component="' + comp + '"]').length > 1) {  // Только если дубль
+                            $('div[data-component="' + comp + '"]:not(:first)').remove();
+                        }
+                    });
+                }, 100);  // Увеличил задержку для стабильности
+                $("#hideInstall").remove();
+                /* Сдвигаем раздел выше */
+                setTimeout(function() {
+                    $('div[data-component=plugins]').before($('div[data-component=add_plugin]'));
+                }, 30);
             }
         });
 
-        // Добавляем папку Интерфейс только если не существует
-        var interfaceParamExists = Lampa.SettingsApi.params.some(function(param) {
-            return param.component === 'add_plugin' && param.param && param.param.name === 'add_interface_plugin';
+        // Добавляем параметры для интерфейса (включая ваши темы DrXaos)
+        Lampa.SettingsApi.addParam({
+            component: 'add_plugin',
+            param: {
+                name: 'add_interface_plugin',
+                type: 'static',
+                default: true
+            },
+            field: {
+                name: icon_add_interface_plugin
+            },
+            onRender: function(item) {
+                item.on('hover:enter', function () {
+                    Lampa.Settings.create('add_interface_plugin');
+                    Lampa.Controller.enabled().controller.back = function(){
+                        Lampa.Settings.create('add_plugin');
+                    }
+                });
+            }
         });
-        if (!interfaceParamExists) {
-            Lampa.SettingsApi.addParam({
-                component: 'add_plugin',
-                param: {
-                    name: 'add_interface_plugin',
-                    type: 'folder', // Используем folder для открытия подменю
-                    html: icon_add_interface_plugin,
-                    description: 'Темы и прокси интерфейса'
-                },
-                onRender: function(item) {
-                    item.find('.settings-folder__name').css('color', '#f3d900');
-                    item.on('hover:enter', function () {
-                        Lampa.Settings.open('add_interface_plugin');
-                    });
-                }
-            });
-        }
 
-        // TMDB Proxy - исправленный селект
-        var tmdbParamExists = Lampa.SettingsApi.params.some(function(param) {
-            return param.component === 'add_interface_plugin' && param.param && param.param.name === 'TMDB';
-        });
-        if (!tmdbParamExists) {
-            Lampa.SettingsApi.addParam({
-                component: 'add_interface_plugin',
-                param: {
-                    name: 'TMDB',
-                    type: 'select',
-                    values: [ // Массив объектов!
-                        {id: '1', name: 'Установить'},
-                        {id: '2', name: 'Удалить'}
-                    ],
-                    default: Lampa.Storage.get('TMDB_plugin', '2'), // По умолчанию удалить, если не установлен
-                },
-                field: {
-                    name: 'TMDB Proxy',
-                    description: 'Проксирование постеров для сайта TMDB'
-                },
-                onChange: function(value) {
-                    var pluginUrl = 'https://bylampa.github.io/tmdb-proxy.js';
-                    var itemName = 'TMDB';
-                    if (value == '1') {
-                        itemON(pluginUrl, 'TMDB Proxy', '@lampa', itemName);
-                        Lampa.Storage.set('TMDB_plugin', '1');
+        // TMDB Proxy
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'TMDB',
+                type: 'select',
+                values: [  // Исправлено: массив объектов
+                    {id: '1', name: 'Установить'},
+                    {id: '2', name: 'Удалить'}
+                ],
+                default: '2'  // По умолчанию "Удалить", чтобы избежать автозагрузки
+            },
+            field: {
+                name: 'TMDB Proxy',
+                description: 'Проксирование постеров для сайта TMDB'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://bylampa.github.io/tmdb-proxy.js', 'TMDB Proxy', '@lampa', 'TMDB');
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://bylampa.github.io/tmdb-proxy.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://bylampa.github.io/tmdb-proxy.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    if (!$('div[data-name="TMDB"]').find('.settings-param__status').length) {
+                        $('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>');
                     }
-                    if (value == '2') {
-                        deletePlugin(pluginUrl);
-                        Lampa.Storage.set('TMDB_plugin', '2');
-                    }
-                },
-                onRender: function (item) {
-                    $('.settings-param__name', item).css('color', '#f3d900');
-                    hideInstall();
-                    var myResult = checkPlugin('https://bylampa.github.io/tmdb-proxy.js');
-                    var pluginsArray = Lampa.Storage.get('plugins') || [];
-                    setTimeout(function() {
-                        if ($('div[data-name="TMDB"]').length) {
-                            $('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>');
-                            var pluginStatus = 1; // По умолчанию
-                            for (var i = 0; i < pluginsArray.length; i++) {
-                                if (pluginsArray[i].url === 'https://bylampa.github.io/tmdb-proxy.js') {
-                                    pluginStatus = pluginsArray[i].status || 1;
-                                    break;
-                                }
-                            }
-                            var statusEl = $('div[data-name="TMDB"]').find('.settings-param__status');
-                            statusEl.removeClass('active error');
-                            if (myResult && pluginStatus !== 0) {
-                                statusEl.addClass('active');
-                            } else if (pluginStatus === 0) {
-                                statusEl.css('background-color', 'rgb(255, 165, 0)');
-                            } else {
-                                statusEl.addClass('error');
-                            }
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://bylampa.github.io/tmdb-proxy.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
                         }
-                    }, 200); // Увеличил задержку для DOM
-                    item.on('hover:enter', function (event) {
-                        nthChildIndex = focus_back(event);
-                    });
-                }
-            });
-        }
-
-        // DrXaos Themes - исправленный, с реальным URL (замени на свой!)
-        var drxaosParamExists = Lampa.SettingsApi.params.some(function(param) {
-            return param.component === 'add_interface_plugin' && param.param && param.param.name === 'DrXaos_Themes';
+                    }
+                    var statusEl = $('div[data-name="TMDB"]').find('.settings-param__status');
+                    statusEl.removeClass('active error').css('background-color', '');
+                    if (myResult && pluginStatus !== 0) {
+                        statusEl.addClass('active');
+                    } else if (pluginStatus === 0) {
+                        statusEl.css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        statusEl.addClass('error');
+                    }
+                }, 200);  // Увеличил задержку для DOM
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event); // Сохраняем элемент в переменной
+                });
+            }
         });
-        if (!drxaosParamExists) {
-            Lampa.SettingsApi.addParam({
-                component: 'add_interface_plugin',
-                param: {
-                    name: 'DrXaos_Themes',
-                    type: 'select',
-                    values: [ // Массив объектов!
-                        {id: '1', name: 'Установить'},
-                        {id: '2', name: 'Удалить'}
-                    ],
-                    default: Lampa.Storage.get('DrXaos_Themes', '2'),
-                },
-                field: {
-                    name: 'DrXaos Themes',
-                    description: 'Кастомные темы интерфейса от DrXaos (удаляет tricks.js и goldtheme.js)'
-                },
-                onChange: function(value) {
-                    var pluginUrl = 'https://novyx0.github.io/my-plugins/drxaos_themes.js'; // Твой реальный URL!
-                    var itemName = 'DrXaos_Themes';
-                    if (value == '1') {
-                        // Удаляем конфликты
-                        ['https://andreyurl54.github.io/diesel5/tricks.js', 'https://bazzzilius.github.io/scripts/gold_theme.js'].forEach(function(url) {
-                            if (checkPlugin(url)) deletePlugin(url);
-                        });
-                        itemON(pluginUrl, 'DrXaos Themes', '@novyx0', itemName);
-                        Lampa.Storage.set('DrXaos_Themes', '1');
-                    }
-                    if (value == '2') {
-                        deletePlugin(pluginUrl);
-                        Lampa.Storage.set('DrXaos_Themes', '2');
-                    }
-                },
-                onRender: function (item) {
-                    $('.settings-param__name', item).css('color', '#f3d900');
-                    hideInstall();
-                    var myResult = checkPlugin('https://novyx0.github.io/my-plugins/drxaos_themes.js');
-                    var pluginsArray = Lampa.Storage.get('plugins') || [];
-                    setTimeout(function() {
-                        if ($('div[data-name="DrXaos_Themes"]').length) {
-                            $('div[data-name="DrXaos_Themes"]').append('<div class="settings-param__status one"></div>');
-                            var pluginStatus = 1;
-                            for (var i = 0; i < pluginsArray.length; i++) {
-                                if (pluginsArray[i].url === 'https://novyx0.github.io/my-plugins/drxaos_themes.js') {
-                                    pluginStatus = pluginsArray[i].status || 1;
-                                    break;
-                                }
-                            }
-                            var statusEl = $('div[data-name="DrXaos_Themes"]').find('.settings-param__status');
-                            statusEl.removeClass('active error');
-                            if (myResult && pluginStatus !== 0) {
-                                statusEl.addClass('active');
-                            } else if (pluginStatus === 0) {
-                                statusEl.css('background-color', 'rgb(255, 165, 0)');
-                            } else {
-                                statusEl.addClass('error');
-                            }
-                        }
-                    }, 200);
-                    item.on('hover:enter', function (event) {
-                        nthChildIndex = focus_back(event);
-                    });
+
+        // Пример: Tricks (добавь аналогично для Rating, Want и т.д.)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'Tricks',
+                type: 'select',
+                values: [
+                    {id: '1', name: 'Установить'},
+                    {id: '2', name: 'Удалить'}
+                ],
+                default: '2'
+            },
+            field: {
+                name: 'Tricks',
+                description: 'Улучшения интерфейса (tricks.js)'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://andreyurl54.github.io/diesel5/tricks.js', 'Tricks', '@andreyurl54', 'Tricks');
                 }
-            });
-        }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://andreyurl54.github.io/diesel5/tricks.js";
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://andreyurl54.github.io/diesel5/tricks.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    if (!$('div[data-name="Tricks"]').find('.settings-param__status').length) {
+                        $('div[data-name="Tricks"]').append('<div class="settings-param__status one"></div>');
+                    }
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://andreyurl54.github.io/diesel5/tricks.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    var statusEl = $('div[data-name="Tricks"]').find('.settings-param__status');
+                    statusEl.removeClass('active error').css('background-color', '');
+                    if (myResult && pluginStatus !== 0) {
+                        statusEl.addClass('active');
+                    } else if (pluginStatus === 0) {
+                        statusEl.css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        statusEl.addClass('error');
+                    }
+                }, 200);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
 
-        // Добавь аналогично другие параметры (например, для Управления) по шаблону выше.
-        // Пример для полной структуры: используй type: 'folder' для подменю, как для add_interface_plugin.
+        // DrXaos Themes (замени URL на свой реальный GitHub-репо)
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'DrXaos_Themes',
+                type: 'select',
+                values: [
+                    {id: '1', name: 'Установить'},
+                    {id: '2', name: 'Удалить'}
+                ],
+                default: '2'
+            },
+            field: {
+                name: 'DrXaos Themes',
+                description: 'Кастомные темы интерфейса от DrXaos, заменяют другие плагины стилей'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    // Удаляем конфликтующие плагины стилей перед установкой
+                    ['https://andreyurl54.github.io/diesel5/tricks.js', 'https://bazzzilius.github.io/scripts/gold_theme.js'].forEach(function(url) {
+                        deletePlugin(url);
+                    });
+                    itemON('https://github.com/DrXaos/lampa-themes/raw/main/themes.js', 'DrXaos Themes', '@DrXaos', 'DrXaos_Themes');  // Замени на свой URL
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://github.com/DrXaos/lampa-themes/raw/main/themes.js";  // Соответствующий URL
+                    deletePlugin(pluginToRemoveUrl);
+                }
+            },
+            onRender: function (item) {
+                $('.settings-param__name', item).css('color','f3d900'); 
+                hideInstall();
+                var myResult = checkPlugin('https://github.com/DrXaos/lampa-themes/raw/main/themes.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function() {
+                    if (!$('div[data-name="DrXaos_Themes"]').find('.settings-param__status').length) {
+                        $('div[data-name="DrXaos_Themes"]').append('<div class="settings-param__status one"></div>');
+                    }
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://github.com/DrXaos/lampa-themes/raw/main/themes.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    var statusEl = $('div[data-name="DrXaos_Themes"]').find('.settings-param__status');
+                    statusEl.removeClass('active error').css('background-color', '');
+                    if (myResult && pluginStatus !== 0) {
+                        statusEl.addClass('active');
+                    } else if (pluginStatus === 0) {
+                        statusEl.css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        statusEl.addClass('error');
+                    }
+                }, 200);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event);
+                });
+            }
+        });
 
-        // Реклама (только если не добавлена)
-        if ($('.ads-plugin').length === 0) {
-            $('body').append('<div class="ads-plugin">' + ads + '</div>');
-        }
+        // Добавь остальные параметры по аналогии (Rating, Want, Sub_reset, Mult, Collections, Weather, Cub_off, Style_interface_fix, Start, goldtheme, concert_search, Rezka_comments)
+        // Например, для goldtheme:
+        /*
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'goldtheme',
+                type: 'select',
+                values: [{id: '1', name: 'Установить'}, {id: '2', name: 'Удалить'}],
+                default: '2'
+            },
+            field: {
+                name: 'Gold Theme',
+                description: 'Золотая тема интерфейса'
+            },
+            onChange: function(value) {
+                if (value == '1') {
+                    itemON('https://bazzzilius.github.io/scripts/gold_theme.js', 'Gold Theme', '@bazzzilius', 'goldtheme');
+                }
+                if (value == '2') {
+                    deletePlugin('https://bazzzilius.github.io/scripts/gold_theme.js');
+                }
+            },
+            onRender: function (item) { /* аналогично выше */ }
+        });
+        */
+
+        // Реклама и счетчик
+        var adsHtml = ads;
+        $('body').append(adsHtml);
 
         /* Счётчик Яндекса */
-        if (typeof ym === 'undefined') {
-            (function(m, e, t, r, i, k, a) {
-                m[i] = m[i] || function() {
-                    (m[i].a = m[i].a || []).push(arguments)
-                };
-                m[i].l = 1 * new Date();
-                for(var j = 0; j < document.scripts.length; j++) {
-                    if(document.scripts[j].src === r) { return; }
-                }
-                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
-            })
-            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for(var j = 0; j < document.scripts.length; j++) {
+                if(document.scripts[j].src === r) { return; }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-            ym(93937344, "init", {
-                clickmap: true,
-                trackLinks: true,
-                accurateTrackBounce: true
-            });
-            var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93937344" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
-            $('body').append(METRIKA);
-        }
+        ym(93937344, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+        });
+        var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93937344" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
+        $('body').append(METRIKA);
 
-        // Обработка открытия add_plugin
+        // Обработка открытия плагинов
         Lampa.Settings.listener.follow('open', function(e) {
             if (e.name == 'add_plugin') {
                 setTimeout(function() {
-                    if (document.querySelector("div > span > div > span") && document.querySelector("div > span > div > span").innerText.includes('@lampa_plugins_uncensored')) {
-                        ['Еще', 'Редактировать', 'История', 'Статус'].forEach(function(text) {
-                            $('div > span:contains("' + text + '")').parent().remove();
-                        });
+                    if (document.querySelector("div > span > div > span")) {
+                        if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
+                            $('div > span:contains("Еще")').parent().remove();
+                            $('div > span:contains("Редактировать")').parent().remove();
+                            $('div > span:contains("История")').parent().remove();
+                            $('div > span:contains("Статус")').parent().remove();
+                        }
                     }
-                }, 100);
+                }, 0);
             }
         });
-    } // addonStart
+    } // /* addonStart */
 
     if (!!window.appready) addonStart();
     else {
