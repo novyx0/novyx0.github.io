@@ -1472,10 +1472,11 @@
                 });
             }
         });
+
         Lampa.SettingsApi.addParam({
             component: 'add_interface_plugin',
             param: {
-                name: 'tracks',
+                name: 'Sisi',
                 type: 'select',
                 values: {
                     1: 'Установить',
@@ -1484,47 +1485,108 @@
                 //default: '1',
             },
             field: {
-                name: 'tracks',
+                name: 'Sisi',
                 description: ''
             },
             onChange: function (value) {
                 if (value == '1') {
-                    itemON('https://zy5arc.github.io/tracks.js', 'tracks', '@author', 'tracks');
+                    itemON('http://193.169.241.242:12127/sisi.js', 'Sisi');
                     // console.log("nthChildIndex, переданный в itemON:", nthChildIndex);
                 }
                 if (value == '2') {
-                    var pluginToRemoveUrl = "https://zy5arc.github.io/tracks.js";
+                    var pluginToRemoveUrl = "http://193.169.241.242:12127/sisi.js";
                     deletePlugin(pluginToRemoveUrl);
                     // console.log("nthChildIndex, переданный в deletePlugin:", nthChildIndex);
                 }
             },
             onRender: function (item) { $('.settings-param__name', item).css('color', 'f3d900'); hideInstall()
-                /*var myResult = checkPlugin('https://zy5arc.github.io/tracks.js')
-                setTimeout(function() {	
-                    $('div[data-name="tracks"]').append('<div class="settings-param__status one"></div>')
+                /*var myResult = checkPlugin('http://193.169.241.242:12127/sisi.js')
+                setTimeout(function() {
+                    $('div[data-name="Sisi"]').append('<div class="settings-param__status one"></div>')
                     if (myResult) {
-                        $('div[data-name="tracks"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+                        $('div[data-name="Sisi"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
                     } else {
-                        $('div[data-name="tracks"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+                        $('div[data-name="Sisi"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
                     }
                 }, 100);*/
-                var myResult = checkPlugin('https://zy5arc.github.io/tracks.js');
+                var myResult = checkPlugin('http://193.169.241.242:12127/sisi.js');
                 var pluginsArray = Lampa.Storage.get('plugins');
                 setTimeout(function () {
-                    $('div[data-name="tracks"]').append('<div class="settings-param__status one"></div>');
+                    $('div[data-name="Sisi"]').append('<div class="settings-param__status one"></div>');
                     var pluginStatus = null;
                     for (var i = 0; i < pluginsArray.length; i++) {
-                        if (pluginsArray[i].url === 'https://zy5arc.github.io/tracks.js') {
+                        if (pluginsArray[i].url === 'http://193.169.241.242:12127/sisi.js') {
                             pluginStatus = pluginsArray[i].status;
                             break;
                         }
                     }
                     if (myResult && pluginStatus !== 0) {
-                        $('div[data-name="tracks"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                        $('div[data-name="Sisi"]').find('.settings-param__status').removeClass('active error').addClass('active');
                     } else if (pluginStatus === 0) {
-                        $('div[data-name="tracks"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                        $('div[data-name="Sisi"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
                     } else {
-                        $('div[data-name="tracks"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                        $('div[data-name="Sisi"]').find('.settings-param__status').removeClass('active error').addClass('error');
+                    }
+                }, 100);
+                item.on("hover:enter", function (event) {
+                    nthChildIndex = focus_back(event); // Сохраняем элемент в переменной
+                });
+            }
+        });
+
+        Lampa.SettingsApi.addParam({
+            component: 'add_interface_plugin',
+            param: {
+                name: 'maxsm_series',
+                type: 'select',
+                values: {
+                    1: 'Установить',
+                    2: 'Удалить',
+                },
+                //default: '1',
+            },
+            field: {
+                name: 'maxsm_series',
+                description: ''
+            },
+            onChange: function (value) {
+                if (value == '1') {
+                    itemON('https://zy5arc.github.io/maxsm_series.js', 'maxsm_series');
+                    // console.log("nthChildIndex, переданный в itemON:", nthChildIndex);
+                }
+                if (value == '2') {
+                    var pluginToRemoveUrl = "https://zy5arc.github.io/maxsm_series.js";
+                    deletePlugin(pluginToRemoveUrl);
+                    // console.log("nthChildIndex, переданный в deletePlugin:", nthChildIndex);
+                }
+            },
+            onRender: function (item) { $('.settings-param__name', item).css('color', 'f3d900'); hideInstall()
+                /*var myResult = checkPlugin('https://zy5arc.github.io/maxsm_series.js')
+                setTimeout(function() {
+                    $('div[data-name="maxsm_series"]').append('<div class="settings-param__status one"></div>')
+                    if (myResult) {
+                        $('div[data-name="maxsm_series"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+                    } else {
+                        $('div[data-name="maxsm_series"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+                    }
+                }, 100);*/
+                var myResult = checkPlugin('https://zy5arc.github.io/maxsm_series.js');
+                var pluginsArray = Lampa.Storage.get('plugins');
+                setTimeout(function () {
+                    $('div[data-name="maxsm_series"]').append('<div class="settings-param__status one"></div>');
+                    var pluginStatus = null;
+                    for (var i = 0; i < pluginsArray.length; i++) {
+                        if (pluginsArray[i].url === 'https://zy5arc.github.io/maxsm_series.js') {
+                            pluginStatus = pluginsArray[i].status;
+                            break;
+                        }
+                    }
+                    if (myResult && pluginStatus !== 0) {
+                        $('div[data-name="maxsm_series"]').find('.settings-param__status').removeClass('active error').addClass('active');
+                    } else if (pluginStatus === 0) {
+                        $('div[data-name="maxsm_series"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
+                    } else {
+                        $('div[data-name="maxsm_series"]').find('.settings-param__status').removeClass('active error').addClass('error');
                     }
                 }, 100);
                 item.on("hover:enter", function (event) {
