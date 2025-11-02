@@ -1,3 +1,4 @@
+/* jshint esversion: 6, bitwise: false */
 (function() {
     'use strict';
     
@@ -784,7 +785,6 @@ drxaos_animations_desc: { ru: 'Плавные анимации при навед
 drxaos_font_weight: { ru: 'Толщина шрифта', en: 'Font Weight', uk: 'Товщина шрифту' },
 drxaos_font_weight_desc: { ru: 'Глобальная настройка толщины шрифта для всех тем', en: 'Global font weight setting for all themes', uk: 'Глобальне налаштування товщини шрифту для всіх тем' },
 drxaos_quick_theme: { ru: 'Быстрый выбор темы', en: 'Quick Theme Selector', uk: 'Швидкий вибір теми' },
-theme_default: { ru: '🎯 Стандартная', en: '🎯 Default', uk: '🎯 Стандартна' },
 theme_midnight: { ru: '🌙 Полночь', en: '🌙 Midnight', uk: '🌙 Північ' },
 theme_crimson: { ru: '🔴 Багровый', en: '🔴 Crimson', uk: '🔴 Багряний' },
 theme_ocean: { ru: '🌊 Океан', en: '🌊 Ocean', uk: '🌊 Океан' },
@@ -826,6 +826,36 @@ jacred_saved: { ru: '✅ JacRed URL сохранён: ', en: '✅ JacRed URL sav
 setting_off: { ru: 'Выключено', en: 'Off', uk: 'Вимкнено' },
 setting_on: { ru: 'Включено', en: 'On', uk: 'Увімкнено' }
 });
+/* DRXAOS Themes — включение трех функций по умолчанию (embedded, first-run safe) */
+(function(){ 'use strict';
+  function whenReady(cb){
+    if (window.Lampa && Lampa.Storage) cb();
+    else setTimeout(function(){ whenReady(cb); }, 200);
+  }
+  whenReady(function(){
+    try{
+      // Варианты ключей для совместимости разных ревизий
+      var defaults = {
+        'season_info': true,            // 📺 Информация о сезонах
+        'source_filter': true,          // 🔍 Фильтр источников
+        'movie_quality': true,          // 🎯 Качество фильмов
+        'drxaos_season_info': true,
+        'drxaos_source_filter': true,
+        'drxaos_movie_quality': true
+      };
+      Object.keys(defaults).forEach(function(k){
+        var cur = Lampa.Storage.get(k);
+        if (cur === undefined || cur === null) Lampa.Storage.set(k, defaults[k]);
+      });
+      // Сообщим окружению о возможном изменении настроек
+      try{
+        if (Lampa.Listener && Lampa.Listener.send){
+          Lampa.Listener.send('settings:updated', { name: 'drxaos_themes', source: 'defaults' });
+        }
+      }catch(e){}
+    }catch(e){}
+  });
+})();
 var prevtheme = '';
 var applyThemeQueue = [];
 var applyThemeTimer = null;
@@ -985,8 +1015,18 @@ card-more__box {
     font-family: 'Netflix Sans', 'Netflix Sans', sans-serif !important;
 }
 body {
-    background: linear-gradient(135deg, var(--bg-color, #141414) 0%, rgba(0, 0, 0, var(--drxaos-surface-opacity)) 100%) !important;
+    background: #141414 !important;
+    background: linear-gradient(135deg, #141414 0%, #0a0a0a 100%) !important;
 }
+
+.app {
+    background: #141414 !important;
+}
+
+.app__default {
+    background: transparent !important;
+}
+
 body .card, .card {
     background: transparent !important;
     border: none !important;
@@ -2377,6 +2417,238 @@ body .filter--filter.active::after {
 [data-component="plugins"] .settings__title {
     color: var(--text-main) !important;
     font-weight: 600 !important;
+}
+/* ========================================
+   ВОЗРАСТНОЙ РЕЙТИНГ / STATUS / QUALITY
+   Hi-Tech 2025 Style (ATV Optimized)
+   ======================================== */
+
+/* Возрастной рейтинг (PG) */
+.full-start__pg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    min-width: 42px;
+    height: 32px;
+    
+    /* Hi-Tech градиент с прозрачностью */
+    background: rgba(0, 0, 0, 0.95) !important;
+    
+    /* Тонкая рамка цвета темы */
+    border: 1.5px solid rgba(var(--primary-rgb), 0.5);
+    border-radius: 8px;
+    
+    /* Простая тень для ATV */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    
+    /* GPU ускорение */
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    
+    opacity: 0.995;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(var(--primary-rgb), 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.full-start__pg:hover {
+    transform: translateY(-1px) translateZ(0);
+    border-color: rgba(var(--primary-rgb), 0.8);
+    box-shadow: 0 3px 8px rgba(var(--primary-rgb), 0.3);
+}
+
+/* Статус (общий) */
+.full-start__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    height: 32px;
+    
+    /* Полупрозрачный фон с градиентом */
+    background: linear-gradient(135deg, 
+        rgba(30, 41, 59, 0.85) 0%, 
+        rgba(15, 23, 42, 0.85) 100%);
+    
+    border: 1px solid rgba(100, 116, 139, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    
+    transform: translateZ(0);
+    will-change: transform;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    
+    opacity: 0.995;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(226, 232, 240, 0.95);
+    white-space: nowrap;
+}
+
+.full-start__status:hover {
+    transform: translateY(-1px) translateZ(0);
+    border-color: rgba(139, 92, 246, 0.5);
+}
+
+/* Иконка внутри статуса */
+.full-start__status svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.9;
+    flex-shrink: 0;
+}
+
+/* Качество (surs_quality) - специальный акцент */
+.full-start__status.surs_quality {
+    /* Яркий градиент для качества */
+    background: linear-gradient(135deg, 
+        rgba(16, 185, 129, 0.25) 0%, 
+        rgba(5, 150, 105, 0.2) 100%);
+    
+    border-color: rgba(52, 211, 153, 0.6);
+    color: rgba(167, 243, 208, 1);
+    font-weight: 600;
+}
+
+.full-start__status.surs_quality:hover {
+    border-color: rgba(52, 211, 153, 0.8);
+    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.35);
+    transform: translateY(-2px) translateZ(0);
+}
+
+/* Текст качества выделяем */
+.full-start__status.surs_quality::before {
+    content: '●';
+    margin-right: 4px;
+    color: rgba(52, 211, 153, 0.9);
+    animation: pulse-quality 2s ease-in-out infinite;
+}
+
+@keyframes pulse-quality {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Группировка бейджей */
+.full-start__pg + .full-start__status,
+.full-start__status + .full-start__status,
+.full-start__status + .full-start__pg {
+    margin-left: 8px;
+}
+
+/* ========================================
+   ВАРИАНТЫ СТАТУСОВ ПО ТИПУ
+   ======================================== */
+
+/* Онлайн источник */
+.full-start__status[data-source="online"] {
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.25) 0%, 
+        rgba(37, 99, 235, 0.2) 100%);
+    border-color: rgba(96, 165, 250, 0.6);
+    color: rgba(191, 219, 254, 1);
+}
+
+.full-start__status[data-source="online"]:hover {
+    border-color: rgba(96, 165, 250, 0.8);
+    box-shadow: 0 3px 10px rgba(59, 130, 246, 0.35);
+}
+
+/* Торрент источник */
+.full-start__status[data-source="torrent"] {
+    background: linear-gradient(135deg, 
+        rgba(16, 185, 129, 0.25) 0%, 
+        rgba(5, 150, 105, 0.2) 100%);
+    border-color: rgba(52, 211, 153, 0.6);
+    color: rgba(167, 243, 208, 1);
+}
+
+.full-start__status[data-source="torrent"]:hover {
+    border-color: rgba(52, 211, 153, 0.8);
+    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.35);
+}
+
+/* Статус "В процессе" / Ongoing */
+.full-start__status[data-type="ongoing"] {
+    background: linear-gradient(135deg, 
+        rgba(251, 146, 60, 0.25) 0%, 
+        rgba(249, 115, 22, 0.2) 100%);
+    border-color: rgba(251, 146, 60, 0.6);
+    color: rgba(254, 215, 170, 1);
+}
+
+/* Статус "Завершён" / Completed */
+.full-start__status[data-type="completed"] {
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.25) 0%, 
+        rgba(109, 40, 217, 0.2) 100%);
+    border-color: rgba(167, 139, 250, 0.6);
+    color: rgba(221, 214, 254, 1);
+}
+
+/* ========================================
+   АДАПТАЦИЯ ПОД РАЗНЫЕ ЭКРАНЫ
+   ======================================== */
+
+@media (max-width: 768px) {
+    .full-start__pg,
+    .full-start__status {
+        height: 28px;
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+    
+    .full-start__status svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .full-start__pg + .full-start__status,
+    .full-start__status + .full-start__status {
+        margin-left: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .full-start__pg,
+    .full-start__status {
+        height: 26px;
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+    
+    .full-start__status svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* ========================================
+   ОПТИМИЗАЦИЯ ДЛЯ ANDROID TV
+   ======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+    .full-start__pg:hover,
+    .full-start__status:hover {
+        transform: translateZ(0);
+    }
+    
+    /* Focus для TV-пульта */
+    .full-start__pg:focus,
+    .full-start__status:focus {
+        border-color: rgba(var(--primary-rgb), 1);
+        box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.3);
+        transform: scale(1.05) translateZ(0);
+    }
+    
+    .full-start__status.surs_quality:focus {
+        border-color: rgba(52, 211, 153, 1);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4);
+    }
 }`;
 var style = $('<style id="drxaos_theme_style"></style>');
 var additionalStyles = `
@@ -2496,7 +2768,7 @@ var additionalStyles = `
     border-color: rgba(152, 222, 255, 0.95) !important;
 }
 .card__next-episode, .card__episode-date, .card-next-episode {
-    bottom: 40px !important;
+    bottom: 8px !important;
     left: 8px !important;
     top: auto !important;
     right: auto !important;
@@ -2504,7 +2776,7 @@ var additionalStyles = `
     border-color: rgba(255, 200, 170, 0.95) !important;
 }
 .card__seasons, .card-seasons, .card--season-complete, .card--season-progress {
-    bottom: 8px !important;
+    bottom: 40px !important;
     left: 8px !important;
     top: auto !important;
     right: auto !important;
@@ -3378,18 +3650,34 @@ function applyFullButtons() {
 function createQuickThemeModal() {
     try {
         if (!window.jQuery || !window.$) return;
+        var controller_name = 'drxaos_quick_theme_modal';
+
         function closeModal() {
-            var modal = document.querySelector('.drxaos-quick-theme-modal');
-            if (modal) {
-                modal.remove();
+            try {
+                // Удаляем контроллер из Lampa
+                Lampa.Controller.toggle(controller_name);
+
+                var modal = document.querySelector('.drxaos-quick-theme-modal');
+                if (modal) {
+                    modal.remove();
+                }
+
+                // Очищаем все обработчики
                 $(document).off('keydown.quickThemeModal');
                 $(document).off('keyup.quickThemeModal');
                 $(document).off('keydown.quickThemeNavigation');
+
+                // Убираем фокус с кнопки
                 var quickBtn = document.querySelector('#drxaos-quick-theme-btn');
                 if (quickBtn) {
                     quickBtn.classList.remove('focus', 'focused', 'active');
                     quickBtn.blur();
                 }
+
+                // Возвращаем фокус основному контенту
+                Lampa.Controller.toggle('content');
+            } catch(e) {
+                console.error('[DrxThemes] Error closing modal:', e);
             }
         }
 var modal = $('<div class="drxaos-quick-theme-modal"></div>');
@@ -3398,7 +3686,6 @@ var content = $('<div class="drxaos-modal-content"></div>');
 var title = $('<h2 class="drxaos-modal-title">🎨 Выберите тему</h2>');
 var themesGrid = $('<div class="drxaos-themes-grid"></div>');
 var themesList = [
-{ id: 'default', name: 'Default', icon: '🎯' },
 { id: 'midnight', name: 'Midnight', icon: '🌙' },
 { id: 'crimson', name: 'Crimson', icon: '🔴' },
 { id: 'ocean', name: 'Ocean', icon: '🌊' },
@@ -3407,7 +3694,8 @@ var themesList = [
 { id: 'slate', name: 'Slate', icon: '⚫' },
 { id: 'lavender', name: 'Lavender', icon: '💜' },
 { id: 'emerald', name: 'Emerald', icon: '💚' },
-{ id: 'amber', name: 'Amber', icon: '🟠' }
+{ id: 'amber', name: 'Amber', icon: '🟠' },
+            { id: 'darkred', name: 'DARK RED', icon: '🔴' }
 ];
 var currentTheme = Lampa.Storage.get('drxaos_theme', 'darkred');
 function activateTheme(themeId) {
@@ -3497,6 +3785,89 @@ if (typeof Lampa !== 'undefined' && Lampa.Listener) {
         }
         return true;
     };
+
+        // ===== КОНТРОЛЛЕР LAMPA ДЛЯ БЫСТРОЙ СМЕНЫ ТЕМ =====
+        var modalController = {
+            name: controller_name,
+            toggle: function() {
+                Lampa.Controller.add(controller_name, {
+                    toggle: function() {},
+                    back: function() { closeModal(); },
+                    up: function() {
+                        var $items = $('.drxaos-theme-item');
+                        var $focused = $items.filter('.focus, .active');
+                        var currentIndex = $items.index($focused);
+                        if (currentIndex > 0) {
+                            $focused.removeClass('focus active');
+                            var $next = $items.eq(currentIndex - 1);
+                            $next.addClass('focus active').focus();
+                            $next[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    },
+                    down: function() {
+                        var $items = $('.drxaos-theme-item');
+                        var $focused = $items.filter('.focus, .active');
+                        var currentIndex = $items.index($focused);
+                        if (currentIndex < $items.length - 1) {
+                            $focused.removeClass('focus active');
+                            var $next = $items.eq(currentIndex + 1);
+                            $next.addClass('focus active').focus();
+                            $next[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    },
+                    left: function() {
+                        var $items = $('.drxaos-theme-item');
+                        var $focused = $items.filter('.focus, .active');
+                        var currentIndex = $items.index($focused);
+                        if (currentIndex > 0) {
+                            $focused.removeClass('focus active');
+                            var $next = $items.eq(currentIndex - 1);
+                            $next.addClass('focus active').focus();
+                            $next[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    },
+                    right: function() {
+                        var $items = $('.drxaos-theme-item');
+                        var $focused = $items.filter('.focus, .active');
+                        var currentIndex = $items.index($focused);
+                        if (currentIndex < $items.length - 1) {
+                            $focused.removeClass('focus active');
+                            var $next = $items.eq(currentIndex + 1);
+                            $next.addClass('focus active').focus();
+                            $next[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    },
+                    enter: function() {
+                        var $focused = $('.drxaos-theme-item.focus, .drxaos-theme-item.active');
+                        if ($focused.length) {
+                            var selectedTheme = $focused.data('theme');
+                            if (selectedTheme) {
+                                activateTheme(selectedTheme);
+                                // Закрываем модал с задержкой для применения темы
+                                setTimeout(function() {
+                                    closeModal();
+                                }, 100);
+                            }
+                        }
+                    }
+                });
+                Lampa.Controller.toggle(controller_name);
+            }
+        };
+
+        modalController.toggle();
+        setTimeout(function() {
+            var $items = $('.drxaos-theme-item');
+            var $current = $items.filter('[data-theme="' + currentTheme + '"]');
+            if ($current.length) {
+                $current.addClass('focus active').focus();
+            } else {
+                $items.first().addClass('focus active').focus();
+            }
+            $items.attr('tabindex', '0');
+        }, 100);
+        // ===== КОНЕЦ КОНТРОЛЛЕРА БЫСТРОЙ СМЕНЫ ТЕМ =====
+
     Lampa.Listener.follow('back', backHandler);
 }
 $(document).on('keydown.quickThemeGlobal', function(e) {
@@ -4108,7 +4479,6 @@ function addSettings() {
         name: 'drxaos_theme',
         type: 'select',
         values: {
-            'default': Lampa.Lang.translate('theme_default'),
             'midnight': Lampa.Lang.translate('theme_midnight'),
             'crimson': Lampa.Lang.translate('theme_crimson'),
             'ocean': Lampa.Lang.translate('theme_ocean'),
@@ -4119,7 +4489,7 @@ function addSettings() {
             'emerald': Lampa.Lang.translate('theme_emerald'),
             'amber': Lampa.Lang.translate('theme_amber')
         },
-        default: 'default'
+        default: 'midnight'
     },
         field: {
         name: Lampa.Lang.translate('drxaos_theme'),
@@ -4616,7 +4986,7 @@ $svg.html('<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.1
 } 
 else if (text === 'Торренты' || text === 'Torrents') {
 $torrentsBtn = $btn;
-var $svg = $torrentsBtn.find('svg');
+$svg = $torrentsBtn.find('svg');
 if ($svg.length) {
 $svg.attr('viewBox', '0 0 24 24');
 $svg.html('<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>');
@@ -4656,12 +5026,12 @@ document.body.classList.add('drxaos-buttons-ready');
     }
 }
 function applySeasonInfo() {
-    var seasonInfo = Lampa.Storage.get('season_info', 'off');
+    var seasonInfo = Lampa.Storage.get('season_info', 'on');
     if (seasonInfo === 'on') {
         var tmdbApiKey = Lampa.Storage.get('tmdb_api_key', '');
         if (!tmdbApiKey) {
             if (Lampa.Noty) {
-                Lampa.Noty.show('⚠️ Для работы информации о сезонах нужен TMDB API ключ');
+                Lampa.Noty.show('Включено');
             }
             return;
         }
@@ -4726,7 +5096,7 @@ function applySeasonInfo() {
             .card--season-complete {
                 position: absolute;
                 left: 5px;
-                bottom: 0px;
+                bottom: 40px;
                 background-color: rgba(0, 0, 0, var(--drxaos-surface-opacity));
                 z-index: 12;
                 width: fit-content;
@@ -4740,7 +5110,7 @@ function applySeasonInfo() {
             .card--season-progress {
                 position: absolute;
                 left: 5px;
-                bottom: 0px;
+                bottom: 40px;
                 background-color: rgba(0, 0, 0, var(--drxaos-surface-opacity));
                 z-index: 12;
                 width: fit-content;
@@ -4941,7 +5311,7 @@ function applySeasonInfo() {
                                 }
                                 badge = document.createElement('div');
                                 badge.className = isComplete ? 'card--season-complete' : 'card--season-progress';
-                                badge.innerHTML = '<div>' + content + (isComplete ? ' ✓' : ' ⏱') + '</div>';
+                                badge.innerHTML = '<div>' + content + (isComplete ? ' ✓' : '') + '</div>';
                                 view.appendChild(badge);
                                 setTimeout(function() {
                                     badge.classList.add('show');
@@ -4994,6 +5364,7 @@ function applySeasonInfo() {
         var existingCards = document.querySelectorAll('.card:not([data-season-processed])');
         for (var j = 0; j < existingCards.length; j++) {
             (function(index) {
+                /* jshint -W083 */
                 setTimeout(function() { addSeasonBadge(existingCards[index]); }, index * 300);
             })(j);
         }
@@ -5006,7 +5377,7 @@ function applySeasonInfo() {
     }
 }
 function applySourceFilter() {
-    var sourceFilter = Lampa.Storage.get('source_filter', 'off');
+    var sourceFilter = Lampa.Storage.get('source_filter', 'on');
     if (sourceFilter === 'on') {
         Lampa.Controller.listener.follow('toggle', function (event) {
             if (event.name !== 'select') {
@@ -5044,12 +5415,12 @@ function applySourceFilter() {
     }
 }
 function applyMovieQuality() {
-    var movieQuality = Lampa.Storage.get('movie_quality', 'off');
+    var movieQuality = Lampa.Storage.get('movie_quality', 'on');
     if (movieQuality === 'on') {
         var jacredUrl = Lampa.Storage.get('jacred_url', 'jacred.xyz');
         if (!jacredUrl) {
             if (Lampa.Noty) {
-                Lampa.Noty.show('⚠️ Для работы качества фильмов нужен JacRed URL');
+                Lampa.Noty.show('Включено');
             }
             return;
         }
@@ -5214,43 +5585,63 @@ function initMovieQualitySystem(jacredUrl) {
             callback(null);
             return;
         }
-        function translateQuality(quality, isCamrip) {
-            if (isCamrip) {
-                return 'CAM';
-            }
-            if (typeof quality === 'string') {
-                var numericQuality = parseInt(quality.replace(/[^\d]/g, ''));
-                if (numericQuality >= 2160) {
-                    return '4K';
-                }
-                if (numericQuality >= 1080) {
-                    return 'FHD';
-                }
-                if (numericQuality >= 720) {
-                    return 'HD';
-                }
-                if (numericQuality > 0) {
-                    return 'SD';
-                }
-                return quality;
-            }
-            if (typeof quality !== 'number') {
-                return quality;
-            }
-            if (quality >= 2160) {
-                return '4K';
-            }
-            if (quality >= 1080) {
-                return 'FHD';
-            }
-            if (quality >= 720) {
-                return 'HD';
-            }
-            if (quality > 0) {
-                return 'SD';
-            }
-            return null;
+        function translateQuality(quality, isCamrip, title) {
+    if (isCamrip) return 'CAM';
+    
+    // Приоритет 1: Проверка названия релиза (более точно)
+    if (title && typeof title === 'string') {
+        var titleUpper = title.toUpperCase();
+        
+        // Проверка на 4K/2160p/UHD
+        if (titleUpper.includes('2160P') || 
+            titleUpper.includes('4K') || 
+            titleUpper.includes('UHD') ||
+            titleUpper.includes('ULTRA HD')) {
+            return '4K';
         }
+        
+        // Проверка на FHD/1080p
+        if (titleUpper.includes('1080P') || 
+            titleUpper.includes('FHD') || 
+            titleUpper.includes('FULL HD')) {
+            return 'FHD';
+        }
+        
+        // Проверка на HD/720p
+        if (titleUpper.includes('720P') || 
+            titleUpper.includes('HD') ||
+            titleUpper.includes('HDTV') ||
+            titleUpper.includes('HDRIP')) {
+            return 'HD';
+        }
+        
+        // Проверка на SD/480p
+        if (titleUpper.includes('480P') || 
+            titleUpper.includes('SD') ||
+            titleUpper.includes('DVDRIP')) {
+            return 'SD';
+        }
+    }
+    
+    // Приоритет 2: Числовое значение quality (фолбэк)
+    if (typeof quality === 'string') {
+        var numericQuality = parseInt(quality.replace(/\D/g, ''));
+        if (numericQuality >= 2160) return '4K';
+        if (numericQuality >= 1080) return 'FHD';
+        if (numericQuality >= 720) return 'HD';
+        if (numericQuality > 0) return 'SD';
+        return quality;
+    }
+    
+    if (typeof quality === 'number') {
+        if (quality >= 2160) return '4K';
+        if (quality >= 1080) return 'FHD';
+        if (quality >= 720) return 'HD';
+        if (quality > 0) return 'SD';
+    }
+    
+    return null;
+}
         var year = '';
         var dateStr = normalizedCard.release_date || '';
         if (dateStr.length >= 4) {
@@ -5292,29 +5683,29 @@ function initMovieQualitySystem(jacredUrl) {
                         }
                     }
                     if (!bestFoundTorrent) {
-                        for (var i = 0; i < torrents.length; i++) {
-                            var currentTorrent = torrents[i];
-                            var currentNumericQuality = currentTorrent.quality;
-                            var lowerTitle = (currentTorrent.title || '').toLowerCase();
-                            var isCamrip = /\b(ts|telesync|camrip|cam|TC|звук с TS)\b/i.test(lowerTitle);
-                            if (isCamrip) {
-                                if (typeof currentNumericQuality === 'number' && currentNumericQuality >= 720) {
+                        for (var i2 = 0; i < torrents.length; i++) {
+                            var torr2 = torrents[i2];
+                            var qual2 = torr2.quality;
+                            var title2 = (torr2.title || '').toLowerCase();
+                            var camrip2 = /\b(ts|telesync|camrip|cam|TC|звук с TS)\b/i.test(title2);
+                            if (camrip2) {
+                                if (typeof qual2 === 'number' && qual2 >= 720) {
                                     camripFound = true;
-                                    if (currentNumericQuality > camripQuality) {
-                                        camripQuality = currentNumericQuality;
-                                        bestFoundTorrent = currentTorrent;
+                                    if (qual2 > camripQuality) {
+                                        camripQuality = qual2;
+                                        bestFoundTorrent = torr2;
                                     }
                                 }
                             }
                         }
                     }
                     if (bestFoundTorrent) {
-                        var isCamrip = camripFound && bestNumericQuality === -1;
-                        var finalQuality = translateQuality(bestFoundTorrent.quality || bestNumericQuality, isCamrip);
+                        var camrip2 = camripFound && bestNumericQuality === -1;
+                        var finalQuality = translateQuality(bestFoundTorrent.quality, camrip2, bestFoundTorrent.title);
                         apiCallback({
                             quality: finalQuality,
                             title: bestFoundTorrent.title,
-                            isCamrip: isCamrip
+                            camrip2: camrip2
                         });
                     } else {
                         apiCallback(null);
@@ -5633,8 +6024,9 @@ function initMovieQualitySystem(jacredUrl) {
                 return tmdbId;
             }
                     var hash = 0;
-                    for (var i = 0; i < title.length; i++) {
-                        var char = title.charCodeAt(i);
+                    var i3;
+                    for (i3 = 0; i3 < title.length; i3++) {
+                        var char = title.charCodeAt(i3);
                         hash = ((hash << 5) - hash) + char;
                         hash = hash & hash;
                     }
@@ -5892,10 +6284,21 @@ function initMovieQualitySystem(jacredUrl) {
         }
     }, 10000);
     function addNextEpisodeInfo(cardElement, cardData) {
+        function getDaysLabel(days) {
+            var n = Math.abs(days) % 100;
+            var n1 = n % 10;
+            if (n > 10 && n < 20) return 'дней';
+            if (n1 === 1) return 'день';
+            if (n1 >= 2 && n1 <= 4) return 'дня';
+            return 'дней';
+        }
         if (cardElement.hasAttribute('data-next-episode-processed')) {
             return;
         }
         cardElement.setAttribute('data-next-episode-processed', 'true');
+		 if (cardData.type !== 'tv') {
+        return;
+    }
         var realTmdbId = cardData.tmdb_id || cardData.id;
         var tmdbApiKey = Lampa.Storage.get('tmdb_api_key', '');
         if (!tmdbApiKey) {
@@ -5922,7 +6325,6 @@ function initMovieQualitySystem(jacredUrl) {
             will-change: opacity;
             backface-visibility: hidden;
         `;
-        nextEpisodeElement.textContent = '...';
         var posterElement = cardElement.querySelector('.card__poster, .card-poster, .poster, .card__image, .card-image');
         if (posterElement) {
             posterElement.style.position = 'relative';
@@ -5937,6 +6339,75 @@ function initMovieQualitySystem(jacredUrl) {
                 cardElement.appendChild(nextEpisodeElement);
             }
         }
+
+        // ═══ УМНАЯ ВАЛИДАЦИЯ И ПОИСК TMDB ID ═══
+
+        // Проверка: если ID выглядит как Lampac ID (больше 7 цифр), считаем невалидным
+        var isValidTmdbId = realTmdbId && 
+                           !isNaN(parseInt(realTmdbId)) && 
+                           parseInt(realTmdbId) > 0 && 
+                           parseInt(realTmdbId) < 10000000 && // TMDB ID обычно < 1млн
+                           !(typeof realTmdbId === 'string' && 
+                             (realTmdbId.startsWith('unknown') || realTmdbId.startsWith('unknown_')));
+
+        if (!isValidTmdbId) {
+            // ID невалидный - пробуем найти через поиск по названию
+
+            var title = cardData.title || cardData.name || cardData.original_name;
+            var year = cardData.first_air_date ? new Date(cardData.first_air_date).getFullYear() : 
+                      (cardData.year ? cardData.year : null);
+
+            if (title) {
+                searchTmdbIdByTitle(title, year, tmdbApiKey, function(foundId) {
+                    if (foundId) {
+                        // Нашли ID через поиск - используем его
+                        realTmdbId = foundId;
+
+                        queueRequest(function(done) {
+                            if (cardData.type === 'tv') {
+                                fetchNextEpisodeInfo(realTmdbId, tmdbApiKey, function(result) {
+                                    if (result && result.nextEpisodeDate) {
+                                        var daysUntil = calculateDaysUntil(result.nextEpisodeDate);
+                                        if (nextEpisodeElement && nextEpisodeElement.parentNode) {
+                                            if (daysUntil > 0) {
+                                                nextEpisodeElement.textContent = daysUntil + ' ' + getDaysLabel(daysUntil);
+                                            } else if (daysUntil === 0) {
+                                                nextEpisodeElement.textContent = 'Сегодня';
+                                            } else if (daysUntil === -1) {
+                                                nextEpisodeElement.textContent = 'Вчера';
+                                            } else {
+                                                nextEpisodeElement.textContent = Math.abs(daysUntil) + ' дн. назад';
+                                            }
+                                        }
+                                    } else {
+                                        if (nextEpisodeElement && nextEpisodeElement.parentNode) {
+                                            nextEpisodeElement.remove();
+                                        }
+                                    }
+                                    done();
+                                });
+                            } else {
+                                done();
+                            }
+                        });
+                    } else {
+                        // Не нашли через поиск - удаляем плашку
+                        if (nextEpisodeElement && nextEpisodeElement.parentNode) {
+                            nextEpisodeElement.remove();
+                        }
+                    }
+                });
+            } else {
+                // Нет названия для поиска
+                if (nextEpisodeElement && nextEpisodeElement.parentNode) {
+                    nextEpisodeElement.remove();
+                }
+            }
+            return;
+        }
+
+        // ID валидный - используем напрямую
+
         queueRequest(function(done) {
         if (cardData.type === 'tv') {
             fetchNextEpisodeInfo(realTmdbId, tmdbApiKey, function(result) {
@@ -5944,7 +6415,7 @@ function initMovieQualitySystem(jacredUrl) {
                     var daysUntil = calculateDaysUntil(result.nextEpisodeDate);
                     if (nextEpisodeElement && nextEpisodeElement.parentNode) {
                     if (daysUntil > 0) {
-                        nextEpisodeElement.textContent = 'Через ' + daysUntil + ' дн.';
+                        nextEpisodeElement.textContent = daysUntil + ' ' + getDaysLabel(daysUntil);
                     } else if (daysUntil === 0) {
                         nextEpisodeElement.textContent = 'Сегодня';
                     } else {
@@ -5958,7 +6429,7 @@ function initMovieQualitySystem(jacredUrl) {
                             var daysUntil = calculateDaysUntil(seriesResult.lastAirDate);
                             if (nextEpisodeElement && nextEpisodeElement.parentNode) {
                             if (daysUntil > 0) {
-                                nextEpisodeElement.textContent = 'Через ' + daysUntil + ' дн.';
+                                nextEpisodeElement.textContent = daysUntil + ' ' + getDaysLabel(daysUntil);
                             } else if (daysUntil === 0) {
                                 nextEpisodeElement.textContent = 'Сегодня';
                             } else {
@@ -5980,7 +6451,7 @@ function initMovieQualitySystem(jacredUrl) {
                     var daysUntil = calculateDaysUntil(result.releaseDate);
                     if (nextEpisodeElement && nextEpisodeElement.parentNode) {
                     if (daysUntil > 0) {
-                        nextEpisodeElement.textContent = 'Через ' + daysUntil + ' дн.';
+                        nextEpisodeElement.textContent = daysUntil + ' ' + getDaysLabel(daysUntil);
                     } else if (daysUntil === 0) {
                         nextEpisodeElement.textContent = 'Сегодня';
                     } else {
@@ -6043,6 +6514,43 @@ function initMovieQualitySystem(jacredUrl) {
                         callback(null);
             });
     }
+    // ═══ ПОИСК TMDB ID ПО НАЗВАНИЮ (ФОЛБЭК) ═══
+    function searchTmdbIdByTitle(title, year, apiKey, callback) {
+        if (!title || !apiKey) {
+            callback(null);
+            return;
+        }
+
+        // Очищаем название от лишних символов
+        var cleanTitle = title.replace(/[\[\]()]/g, '').trim();
+        var searchUrl = 'https://api.themoviedb.org/3/search/tv?api_key=' + apiKey + 
+                       '&language=ru&query=' + encodeURIComponent(cleanTitle);
+
+        if (year) {
+            searchUrl += '&first_air_date_year=' + year;
+        }
+
+
+        fetch(searchUrl)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('TMDB Search API error: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                if (data.results && data.results.length > 0) {
+                    var foundId = data.results[0].id;
+                    callback(foundId);
+                } else {
+                    callback(null);
+                }
+            })
+            .catch(function(error) {
+                callback(null);
+            });
+    }
+
     function fetchNextEpisodeInfo(tmdbId, apiKey, callback) {
         if (!tmdbId || (typeof tmdbId === 'string' && tmdbId.startsWith('unknown_')) || isNaN(parseInt(tmdbId))) {
             callback(null);
@@ -7001,41 +7509,89 @@ setTimeout(applyModalOpacity, 500);
                 
                 var $btn = $(UtilitiesButton.elements.button);
                 
-                $btn[0].onclick = function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    UtilitiesButton.toggleMenu();
-                    return false;
-                };
-                
+                               
                 $btn.on('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    UtilitiesButton.toggleMenu();
+
+                    var $menu = $('#drxaos-utils-menu');
+                    var isVisible = $menu.is(':visible');
+
+                    var toggleBackTarget = 'head';
+                    if (!(window.Lampa && Lampa.Controller && Lampa.Controller.enabled && Lampa.Controller.enabled().name === 'head')) {
+                        toggleBackTarget = 'content';
+                    }
+
+                    if (isVisible) {
+                        $menu.hide();
+                        UtilitiesButton.state.isMenuOpen = false;
+                        if (window.Lampa && Lampa.Controller) {
+                            Lampa.Controller.toggle(toggleBackTarget);
+                        }
+                    } else {
+                        $menu.show();
+                        UtilitiesButton.state.isMenuOpen = true;
+
+                        if (window.Lampa && Lampa.Controller) {
+                            var utilsController = {
+                                toggle: function() {},
+                                render: function() { return $menu; },
+                                back: function() {
+                                    $menu.hide();
+                                    UtilitiesButton.state.isMenuOpen = false;
+                                    Lampa.Controller.toggle(toggleBackTarget);
+                                },
+                                left: function() { this.back(); },
+                                right: function() { this.back(); },
+                                up: function() {
+                                    var $items = $('.utils-menu-item');
+                                    var $focused = $items.filter('.focus');
+                                    if (!$focused.length) { $items.first().addClass('focus').focus(); return; }
+                                    var idx = $items.index($focused);
+                                    if (idx > 0) { $focused.removeClass('focus'); $items.eq(idx - 1).addClass('focus').focus(); }
+                                },
+                                down: function() {
+                                    var $items = $('.utils-menu-item');
+                                    var $focused = $items.filter('.focus');
+                                    if (!$focused.length) { $items.first().addClass('focus').focus(); return; }
+                                    var idx = $items.index($focused);
+                                    if (idx < $items.length - 1) { $focused.removeClass('focus'); $items.eq(idx + 1).addClass('focus').focus(); }
+                                },
+                                enter: function() {
+                                    var $focused = $('.utils-menu-item.focus');
+                                    if (!$focused.length) return;
+                                    var action = $focused.data('action');
+                                    $menu.hide();
+                                    UtilitiesButton.state.isMenuOpen = false;
+                                    if (action && UtilitiesButton.actions[action]) setTimeout(function() { UtilitiesButton.actions[action](); }, 100);
+                                    Lampa.Controller.toggle(toggleBackTarget);
+                                }
+                            };
+
+                            Lampa.Controller.add('drxaos_utils_modal', utilsController);
+                            if (typeof Lampa.Controller.collectionSet === 'function') {
+                                Lampa.Controller.collectionSet($menu);
+                            }
+                            Lampa.Controller.toggle('drxaos_utils_modal');
+                        }
+
+                        setTimeout(function() {
+                            var $firstItem = $('.utils-menu-item').first();
+                            $firstItem.addClass('focus').focus();
+                        }, 60);
+                    }
                     return false;
                 });
-                
-                $btn.on('hover:enter', function(e) {
+
+                // Поддержка пульта: наводка + enter
+                $btn.on('hover:enter hover:click', function(e){
                     e.preventDefault();
                     e.stopPropagation();
-                    UtilitiesButton.toggleMenu();
+                    $(this).trigger('click');
                     return false;
                 });
                 
-                $btn.on('hover:click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    UtilitiesButton.toggleMenu();
-                    return false;
-                });
-                
-                $btn.on('hover:touch', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    UtilitiesButton.toggleMenu();
-                    return false;
-                });
-                
+                               
                 $(document).on('click', function(e) {
                     if (UtilitiesButton.state.isMenuOpen && 
                         !$(e.target).closest('#drxaos-utils-btn, #drxaos-utils-menu').length) {
@@ -7125,9 +7681,37 @@ setTimeout(applyModalOpacity, 500);
                     setTimeout(UtilitiesButton.registerBackHandler, 2000);
                 }
             }
+        ,
+
+            registerButtonController: function() {
+                if (!UtilitiesButton.elements.button) return;
+                if (!window.Lampa || !Lampa.Controller) return;
+
+                var $btn = $(UtilitiesButton.elements.button);
+
+                $btn.on('mouseenter focus', function() {
+                    if (Lampa.Controller.enabled().name === 'content') {
+                        Lampa.Controller.add('drxaos_utils_button', {
+                            toggle: function() {},
+                            enter: function() {
+                                $btn.trigger('click');
+                            }
+                        });
+                        Lampa.Controller.toggle('drxaos_utils_button');
+                    }
+                });
+
+                $btn.on('mouseleave blur', function() {
+                    if (Lampa.Controller.enabled().name === 'drxaos_utils_button') {
+                        Lampa.Controller.toggle('content');
+                    }
+                });
+            }
+
         };
         
         UtilitiesButton.init();
+                    UtilitiesButton.registerButtonController();
     })();
     
     // ╚════════════════════════════════════════════════════════════════════════╝
