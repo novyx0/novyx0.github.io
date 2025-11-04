@@ -22,196 +22,83 @@
     };
 
     /**
-     * Глобальные CSS стили
+     * Добавляет универсальные стили и переопределяет шаблоны карточек
      */
-    function applyGlobalStyles() {
-        var styles = `
-        <style id="lampa_ui_global_styles">
-            /* Чекбоксы */
-            .selectbox-item__checkbox { border-radius: 100%; }
-            .selectbox-item--checked .selectbox-item__checkbox { background: #ccc; }
+    function applyUniversalStyles() {
+        // === ШАБЛОН КАРТОЧКИ - ОРИГИНАЛЬНЫЙ ===
+        Lampa.Template.add('card', "<div class=\"card selector layer--visible layer--render\">\n    <div class=\"card__view\">\n        <img src=\"./img/img_load.svg\" class=\"card__img\" />\n\n        <div class=\"card__icons\">\n            <div class=\"card__icons-inner\">\n                \n            </div>\n        </div>\n        \n        <div class=\"card__vote hide\"></div>\n        <div class=\"card__age\">{release_year}</div>\n        <div class=\"card__marker hide\"></div>\n    </div>\n\n    <div class=\"card__title\">{title}</div>\n</div>");
 
-            /* Рейтинги */
-            .full-start-new__rate-line .full-start__pg { font-size: 1em; background: #fff; color: #000; }
-            .full-start__rate { border-radius: 0.25em; padding: 0.3em; background-color: rgba(0, 0, 0, 0.3); }
+        Lampa.Template.add('card_episode', "<div class=\"card-episode selector layer--visible layer--render\">\n    <div class=\"card-episode__body\">\n        <div class=\"full-episode\">\n            <div class=\"full-episode__img\">\n                <img />\n            </div>\n\n            <div class=\"full-episode__body\">\n                <div class=\"card__title\">{title}</div>\n                <div class=\"card__age\">{release_year}</div>\n                <div class=\"full-episode__num hide\">{num}</div>\n                <div class=\"full-episode__name\">{name}</div>\n                <div class=\"full-episode__date\">{date}</div>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-episode__footer hide\">\n        <div class=\"card__imgbox\">\n            <div class=\"card__view\">\n                <img class=\"card__img\" />\n            </div>\n        </div>\n\n        <div class=\"card__left\">\n            <div class=\"card__title\">{title}</div>\n            <div class=\"card__age\">{release_year}</div>\n        </div>\n    </div>\n</div>");
 
-            /* Скругления */
-            .card__img, .card__promo, .full-episode__img img, .full-episode__body, 
-            .full-person__photo, .card-more__box, .full-start__button, .simple-button, 
-            .register, .extensions__item, .extensions__block-add, .search-source, 
-            .full-review-add, .full-review, .bookmarks-folder__layer, .bookmarks-folder__body { 
-                border-radius: 0.5em; 
-            }
+        // === CSS СТИЛИ ===
+        var universal_styles = "<style id=\"lampa_ui_universal_styles\">\n" +
+            // По центру в мобилке
+            "@media screen and (max-width: 480px) { .full-start-new__head, .full-start-new__title, .full-start__title-original, .full-start__rate, .full-start-new__reactions, .full-start-new__rate-line, .full-start-new__buttons, .full-start-new__details, .full-start-new__tagline { -webkit-justify-content: center; justify-content: center; text-align: center; }\n" +
+            ".full-start__title-original { max-width: 100%; }\n" +
+            ".full-start-new__right { background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%); }}\n" +
+            // Круглые чек-боксы
+            ".selectbox-item__checkbox { border-radius: 100%; }\n" +
+            ".selectbox-item--checked .selectbox-item__checkbox { background: #ccc; }\n" +
+            // Рейтинги в карточке
+            ".full-start-new__rate-line .full-start__pg { font-size: 1em; background: #fff; color: #000; }\n" +
+            ".full-start__rate { border-radius: 0.25em; padding: 0.3em; background-color: rgba(0, 0, 0, 0.3); }\n" +
+            // Заголовок карточки
+            ".card__title { height: 3.6em; text-overflow: ellipsis; -webkit-line-clamp: 3; line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }\n" +
+            // *** ГОД - В УГЛУ ПОСТЕРА КРАСИВО ***
+            ".card__view { position: relative; }\n" +
+            ".card__age { position: absolute; right: 0.5em; bottom: 0.5em; z-index: 10; background: rgba(0, 0, 0, 0.7); color: #ffffff; font-weight: 700; padding: 0.5em 0.7em; border-radius: 0.5em; line-height: 1.0; font-size: 1.1em; }\n" +
+            // Рейтинг
+            ".card__vote { position: absolute; bottom: auto; right: 0em; top: 0em; background: rgba(0, 0, 0, 0.6); font-weight: 700; color: #fff; border-radius: 0 0.34em 0 0.34em; line-height: 1.0; font-size: 1.4em; }\n" +
+            // Иконки закладок
+            ".card__icons { position: absolute; top: 0.5em; left: 0.5em; right: auto; display: flex; justify-content: center; align-items: center; background: rgba(0, 0, 0, 0.6); color: #fff; border-radius: 0.5em; padding: 0.3em; }\n" +
+            ".card__icons-inner { background: rgba(0, 0, 0, 0); }\n" +
+            // Маркер статуса
+            ".card__marker { position: absolute; left: 0.5em; top: 3em; bottom: auto; background: rgba(0, 0, 0, 0.6); border-radius: 0.5em; font-weight: 700; font-size: 1.0em; padding: 0.4em 0.6em; display: flex; align-items: center; line-height: 1.2; max-width: 12em; }\n" +
+            // Расстояние между рядами
+            ".items-line.items-line--type-cards + .items-line.items-line--type-cards { margin-top: 1em; }\n" +
+            ".card--small .card__view { margin-bottom: 2em; }\n" +
+            ".items-line--type-cards { min-height: 18em; }\n" +
+            // Фулл скрин
+            "@media screen and (min-width: 580px) { .full-start-new { min-height: 80vh; display: flex; } }\n" +
+            // Постер
+            ".full-start__background.loaded { opacity: 0.8; }\n" +
+            ".full-start__background.dim { opacity: 0.2; }\n" +
+            // Скругления
+            ".card__img, .card__promo, .full-episode__img img, .full-episode__body, .full-person__photo, .card-more__box, .full-start__button, .simple-button, .register, .extensions__item, .extensions__block-add, .search-source, .full-review-add, .full-review, .bookmarks-folder__layer, .bookmarks-folder__body { border-radius: 0.5em; }\n" +
+            ".card.focus .card__view::after, .card.hover .card__view::after, .card-more.focus .card-more__box::after, .full-episode.focus::after, .extensions__item.focus::after, .full-review-add.focus::after, .register.focus::after { border-radius: 1em; }\n" +
+            ".search-source.focus, .simple-button.focus, .menu__item.focus, .full-start__button.focus, .full-descr__tag.focus, .full-person.selector.focus, .tag-count.selector.focus { border-radius: 0.5em; }\n" +
+            // Меню
+            ".menu__item.focus { border-radius: 0 0.5em 0.5em 0; }\n" +
+            ".menu__list { padding-left: 0em; }\n" +
+            ".menu__item.focus .menu__ico { filter: invert(1); }\n" +
+            ".explorer__files .torrent-filter .simple-button { font-size: 1.2em; border-radius: 0.5em; }\n" +
+            ".card__type { display: none; }\n" +
+            "</style>\n";
 
-            .card.focus .card__view::after, .card.hover .card__view::after, 
-            .card-more.focus .card-more__box::after, .full-episode.focus::after, 
-            .extensions__item.focus::after, .full-review-add.focus::after, 
-            .register.focus::after { 
-                border-radius: 1em; 
-            }
-
-            .search-source.focus, .simple-button.focus, .menu__item.focus, 
-            .full-start__button.focus, .full-descr__tag.focus, .full-person.selector.focus, 
-            .tag-count.selector.focus { 
-                border-radius: 0.5em; 
-            }
-
-            /* Тип контента - скрыть */
-            .card__type { display: none; }
-
-            /* Меню */
-            .menu__item.focus { border-radius: 0 0.5em 0.5em 0; }
-            .menu__list { padding-left: 0em; }
-            .menu__item.focus .menu__ico { filter: invert(1); }
-
-            /* Фон */
-            .full-start__background.loaded { opacity: 0.8; }
-            .full-start__background.dim { opacity: 0.2; }
-
-            /* Расстояния */
-            .items-line.items-line--type-cards + .items-line.items-line--type-cards { margin-top: 1em; }
-            .card--small .card__view { margin-bottom: 2em; }
-            .items-line--type-cards { min-height: 18em; }
-
-            @media screen and (max-width: 480px) { 
-                .full-start-new__head, .full-start-new__title, .full-start__title-original, 
-                .full-start__rate, .full-start-new__reactions, .full-start-new__rate-line, 
-                .full-start-new__buttons, .full-start-new__details, .full-start-new__tagline { 
-                    justify-content: center; 
-                    text-align: center; 
-                }
-                .full-start__title-original { max-width: 100%; }
-            }
-
-            @media screen and (min-width: 580px) { 
-                .full-start-new { min-height: 80vh; display: flex; } 
-            }
-
-            /* КРИТИЧЕСКИЙ СТИЛЬ для года на карточке */
-            .card__age-badge {
-                position: absolute !important;
-                bottom: 0.6em !important;
-                right: 0.6em !important;
-                background: rgba(0, 0, 0, 0.7) !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                padding: 0.5em 0.7em !important;
-                border-radius: 0.5em !important;
-                line-height: 1.0 !important;
-                font-size: 1.1em !important;
-                z-index: 20 !important;
-                pointer-events: none !important;
-            }
-
-            .card__view {
-                position: relative !important;
-            }
-        </style>
-        `;
-
-        $('#lampa_ui_global_styles').remove();
-        $('body').append(styles);
-    }
-
-    /**
-     * Перехватываем создание карточек и добавляем год в угол
-     */
-    function injectYearBadges() {
-        // Используем MutationObserver для отслеживания новых карточек
-        var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                $(mutation.addedNodes).each(function() {
-                    var $node = $(this);
-                    
-                    // Ищем карточки, в которых есть год, но нет badge
-                    $node.find('.card__view').each(function() {
-                        var $cardView = $(this);
-                        var $card = $cardView.closest('.card');
-                        
-                        // Проверяем, есть ли уже badge
-                        if (!$cardView.find('.card__age-badge').length) {
-                            var year = $card.data('release_year') || 
-                                      $card.find('[data-release-year]').data('release-year') ||
-                                      '';
-                            
-                            // Извлекаем год из текста внутри карточки
-                            var text = $card.text();
-                            var yearMatch = text.match(/\b(19|20)\d{2}\b/);
-                            if (yearMatch) {
-                                year = yearMatch[0];
-                            }
-                            
-                            if (year) {
-                                $cardView.append(
-                                    '<div class="card__age-badge">' + year + '</div>'
-                                );
-                            }
-                        }
-                    });
-                    
-                    // Если сам элемент является карточкой
-                    if ($node.hasClass('card')) {
-                        var $cardView = $node.find('.card__view');
-                        if ($cardView.length && !$cardView.find('.card__age-badge').length) {
-                            var year = $node.data('release_year') || '';
-                            var text = $node.text();
-                            var yearMatch = text.match(/\b(19|20)\d{2}\b/);
-                            if (yearMatch) {
-                                year = yearMatch[0];
-                            }
-                            
-                            if (year) {
-                                $cardView.append(
-                                    '<div class="card__age-badge">' + year + '</div>'
-                                );
-                            }
-                        }
-                    }
-                });
-            });
-        });
-
-        // Конфигурация observer
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-            attributes: false,
-            characterData: false
-        });
-
-        return observer;
+        Lampa.Template.add('universal_styles_css', universal_styles);
+        $('body').append(Lampa.Template.get('universal_styles_css', {}, true));
     }
 
     /**
      * Анимации
      */
     function applyAnimations() {
-        var enabled = localStorage.getItem('lampa_ui_layout_animations') !== 'false';
+        var animationsEnabled = localStorage.getItem('lampa_ui_layout_animations') === 'true';
         $('#lampa_ui_animations').remove();
-        if (enabled) {
-            var styles = `
-            <style id="lampa_ui_animations">
-                .card { transform: scale(1); transition: transform 0.3s ease; }
-                .card.focus { transform: scale(1.03); }
-                .torrent-item, .online-prestige { transform: scale(1); transition: transform 0.3s ease; }
-                .torrent-item.focus, .online-prestige.focus { transform: scale(1.01); }
-                .extensions__item, .extensions__block-add, .full-review-add, .full-review, 
-                .tag-count, .full-person, .full-episode, .simple-button, .full-start__button { 
-                    transform: scale(1); 
-                    transition: transform 0.3s ease; 
-                }
-                .extensions__item.focus, .extensions__block-add.focus, .full-review-add.focus, 
-                .full-review.focus, .tag-count.focus, .full-person.focus, .full-episode.focus, 
-                .simple-button.focus, .full-start__button.focus { 
-                    transform: scale(1.03); 
-                }
-                .menu__item { transition: transform 0.3s ease; }
-                .menu__item.focus { transform: translateX(-0.2em); }
-                .selectbox-item, .settings-folder, .settings-param { transition: transform 0.3s ease; }
-                .selectbox-item.focus, .settings-folder.focus, .settings-param.focus { transform: translateX(0.2em); }
-            </style>
-            `;
-            $('body').append(styles);
+        if (animationsEnabled) {
+            var animations_style = "<style id=\"lampa_ui_animations\">\n" +
+                ".card { transform: scale(1); transition: transform 0.3s ease; }\n" +
+                ".card.focus { transform: scale(1.03); }\n" +
+                ".torrent-item, .online-prestige { transform: scale(1); transition: transform 0.3s ease; }\n" +
+                ".torrent-item.focus, .online-prestige.focus { transform: scale(1.01); }\n" +
+                ".extensions__item, .extensions__block-add, .full-review-add, .full-review, .tag-count, .full-person, .full-episode, .simple-button, .full-start__button, .items-cards .selector, .card-more, .card-episode { transform: scale(1); transition: transform 0.3s ease; }\n" +
+                ".extensions__item.focus, .extensions__block-add.focus, .full-review-add.focus, .full-review.focus, .tag-count.focus, .full-person.focus, .full-episode.focus, .simple-button.focus, .full-start__button.focus, .items-cards .selector.focus, .card-more.focus, .card-episode.focus { transform: scale(1.03); }\n" +
+                ".menu__item { transition: transform 0.3s ease; }\n" +
+                ".menu__item.focus { transform: translateX(-0.2em); }\n" +
+                ".selectbox-item, .settings-folder, .settings-param { transition: transform 0.3s ease; }\n" +
+                ".selectbox-item.focus, .settings-folder.focus, .settings-param.focus { transform: translateX(0.2em); }\n" +
+                "</style>\n";
+            $('body').append(animations_style);
         }
     }
 
@@ -219,24 +106,19 @@
      * Размер кнопок
      */
     function applyButtonSizing() {
-        var enabled = localStorage.getItem('lampa_ui_layout_big_buttons') === 'true';
+        var bigButtonsEnabled = localStorage.getItem('lampa_ui_layout_big_buttons') === 'true';
         $('#lampa_ui_big_buttons').remove();
-        if (enabled) {
-            var styles = `
-            <style id="lampa_ui_big_buttons">
-                .full-start-new__buttons .full-start__button:not(.focus) span { display: inline; }
-                @media screen and (max-width: 580px) { 
-                    .full-start-new__buttons { overflow: auto; } 
-                    .full-start-new__buttons .full-start__button:not(.focus) span { display: none; } 
-                }
-            </style>
-            `;
-            $('body').append(styles);
+        if (bigButtonsEnabled) {
+            var big_buttons_style = "<style id=\"lampa_ui_big_buttons\">\n" +
+                ".full-start-new__buttons .full-start__button:not(.focus) span { display: inline; }\n" +
+                "@media screen and (max-width: 580px) { .full-start-new__buttons { overflow: auto; } .full-start-new__buttons .full-start__button:not(.focus) span { display: none; } }\n" +
+                "</style>\n";
+            $('body').append(big_buttons_style);
         }
     }
 
     /**
-     * Переводы статусов
+     * Переводы статусов сериалов
      */
     function translateSeriesStatuses() {
         Lampa.Lang.add({
@@ -253,20 +135,25 @@
     }
 
     /**
-     * Инициализация
+     * Инициализация плагина
      */
-    function initialize() {
+    function initializePlugin() {
         // Значения по умолчанию
-        localStorage.setItem('lampa_ui_layout_animations', 'true');
-        localStorage.setItem('lampa_ui_layout_big_buttons', 'false');
+        if (!localStorage.getItem('lampa_ui_layout_animations')) {
+            localStorage.setItem('lampa_ui_layout_animations', 'true');
+        }
+        if (!localStorage.getItem('lampa_ui_layout_big_buttons')) {
+            localStorage.setItem('lampa_ui_layout_big_buttons', 'false');
+        }
 
-        // Компонент настроек
+        // Компонент в настройках
         Lampa.SettingsApi.addComponent({
             component: "lampa_ui_layout",
             name: Lampa.Lang.translate('lampa_ui_layout'),
-            icon: '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512ZM256 448C329.4 448 400 377.4 400 304C400 230.6 329.4 160 256 160C182.6 160 112 230.6 112 304C112 377.4 182.6 448 256 448Z" fill="currentColor"/></svg>'
+            icon: '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512Z" fill="currentColor"/></svg>'
         });
 
+        // Параметры
         Lampa.SettingsApi.addParam({
             component: 'lampa_ui_layout',
             param: {
@@ -278,7 +165,9 @@
                 name: 'Анимации элементов',
                 description: 'Масштабирование при фокусе'
             },
-            onChange: function() { applyAnimations(); }
+            onChange: function(value) {
+                applyAnimations();
+            }
         });
 
         Lampa.SettingsApi.addParam({
@@ -292,24 +181,25 @@
                 name: 'Большие кнопки в карточке',
                 description: 'На мобильных - только иконки'
             },
-            onChange: function() { applyButtonSizing(); }
+            onChange: function(value) {
+                applyButtonSizing();
+            }
         });
 
         // Применяем
-        applyGlobalStyles();
+        applyUniversalStyles();
         applyAnimations();
         applyButtonSizing();
         translateSeriesStatuses();
-        injectYearBadges();
     }
 
     // Запуск
     if (window.appready) {
-        initialize();
+        initializePlugin();
     } else {
-        Lampa.Listener.follow('app', function(e) {
-            if (e.type === 'ready') {
-                initialize();
+        Lampa.Listener.follow('app', function(event) {
+            if (event.type === 'ready') {
+                initializePlugin();
             }
         });
     }
