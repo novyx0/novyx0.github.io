@@ -21,10 +21,10 @@
             ".card__title { height: 3.6em; text-overflow: ellipsis; -o-text-overflow: ellipsis; -webkit-line-clamp: 3; line-clamp: 3; }\n" +
             // Рік випуску - правий нижній кут
             ".card__age { position: absolute; right: 0em; bottom: 0em; z-index: 10; background: rgba(0, 0, 0, 0.6); color: #ffffff; font-weight: 700; padding: 0.5em 0.7em; border-radius: 0.48em 0 0.48em 0; line-height: 1.0; font-size: 1.15em; }\n" +
+            // Рейтинг - правий верхній кут
+            ".card__vote { position: absolute; bottom: auto; right: 0em; top: 0em; background: rgba(0, 0, 0, 0.6); font-weight: 700; color: #fff; border-radius: 0 0.34em 0 0.34em; line-height: 1.0; font-size: 1.4em; }\n" +
             // Приховуємо іконки закладок
             ".card__icons { display: none; }\n" +
-            // Приховуємо рейтинг
-            ".card__vote { display: none; }\n" +
             // Приховуємо статус закладок
             ".card__marker { display: none; }\n" +
             // Скругления карточок
